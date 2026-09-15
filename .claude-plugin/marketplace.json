@@ -1,0 +1,15 @@
+{
+  "name": "galaxy-plugins",
+  "owner": {
+    "name": "JUNHAO QIU"
+  },
+  "description": "Galaxy data, bioinformatics tools and evidence-based analysis guidance.",
+  "plugins": [
+    {
+      "name": "galaxy-plugin",
+      "source": "./plugins/galaxy-plugin",
+      "description": "Use Galaxy data, tools and workflows from desktop AI assistants.",
+      "category": "science"
+    }
+  ]
+}

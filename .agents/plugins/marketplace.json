@@ -1,0 +1,20 @@
+{
+  "name": "galaxy-plugins",
+  "interface": {
+    "displayName": "Galaxy Plugins"
+  },
+  "plugins": [
+    {
+      "name": "galaxy-plugin",
+      "source": {
+        "source": "local",
+        "path": "./plugins/galaxy-plugin"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Research"
+    }
+  ]
+}

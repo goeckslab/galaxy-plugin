@@ -1,0 +1,4 @@
+interface:
+  display_name: "Galaxy Analysis"
+  short_description: "Use Galaxy data, tools, and workflows safely"
+  default_prompt: "Use $galaxy-analysis to inspect, run, verify, or document this work in Galaxy."

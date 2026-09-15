@@ -1,0 +1,33 @@
+{
+  "name": "galaxy-plugin",
+  "version": "0.4.0",
+  "description": "Use Galaxy data, tools and workflows from desktop AI assistants.",
+  "author": {
+    "name": "JUNHAO QIU"
+  },
+  "keywords": [
+    "bioinformatics",
+    "galaxy",
+    "reproducibility"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Galaxy",
+    "shortDescription": "Galaxy data and analyses",
+    "longDescription": "Plan, run, verify, and document Galaxy analyses through a connected Galaxy MCP server.",
+    "developerName": "JUNHAO QIU",
+    "composerIcon": "./assets/galaxy-directory.png",
+    "logo": "./assets/galaxy-directory.png",
+    "category": "Research",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Inspect my Galaxy history and explain which analysis path fits these datasets.",
+      "Find a curated Galaxy workflow for this analysis and verify its outputs.",
+      "Run the appropriate Galaxy tools and produce a reproducibility summary."
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}
