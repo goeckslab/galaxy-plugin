@@ -7,10 +7,10 @@ The easiest way to install is to give this prompt to your agent (replace the tar
 ```text
 Install Galaxy from https://github.com/goeckslab/galaxy-plugin in <target app,
 such as ChatGPT Web (personal account), Claude Code, or Codex>. Follow the
-repository's complete-plugin setup instructions. Install both the Galaxy tools
+repository's setup instructions for that app. Install both the Galaxy tools
 and the bundled galaxy-analysis skill with all its supporting files, confirm it is available,
-and verify the connection with a read-only request. If my client cannot install
-the complete plugin, explain the limitation; do not silently substitute tools-only access.
+and verify the connection with a read-only request. If my client cannot make
+both available, explain the limitation; do not silently substitute tools-only access.
 If you run into any problems, submit a GitHub issue at
 https://github.com/goeckslab/galaxy-plugin/issues with the app/version, steps
 tried, and error. Never include API keys, OAuth tokens, passwords, private
@@ -19,7 +19,7 @@ data, or chat content in the issue.
 
 Work with your Galaxy data from an AI assistant. Browse analysis histories, read reports, find workflows, run bioinformatics tools and check their results. Analyses run on the Galaxy site you choose; the assistant helps you prepare them and interpret the outputs.
 
-Choose the instructions for the app you use below; you only need one installation route. The complete plugin includes the Galaxy tools and the `galaxy-analysis` skill: instructions that help the assistant select tools, check results and record how an analysis was performed. The hosted service connects your assistant to your Galaxy account using MCP (Model Context Protocol). Connecting that service is one part of installation, not a substitute for installing the skill.
+Choose the instructions for the app you use below; you only need one installation route. The setup has two parts: the Galaxy connection supplies tools, and the `galaxy-analysis` skill provides guidance for using them and checking results. On ChatGPT Web, connect the service and upload the skill separately. Claude Code and Codex install both through their plugin package. The hosted service connects your assistant to your Galaxy account using MCP (Model Context Protocol).
 
 ## Watch the ChatGPT Web walkthroughs
 
@@ -42,20 +42,30 @@ The installation video shows a personal Web connection plus a separate skill upl
 ## What you need
 
 - Your own Galaxy account and API key on one or more supported sites. An API key grants access to your Galaxy account; treat it like a password and use non-sensitive example data for your first test.
-- **ChatGPT:** an account with Developer mode and access to ChatGPT Work or Codex for the Plugin Creator step. The personal local-plugin installation below uses the ChatGPT desktop app; enabling Developer mode on the web alone does not complete it. Availability depends on your account and workspace policy.
+- **ChatGPT Web:** an account with **Developer mode** and **Skills → Upload from your computer** available. Both are needed for the browser setup shown in the video. Availability depends on your account and workspace policy; this route does not require the desktop app, ChatGPT Work or Codex.
 - **Claude Code or Codex:** permission to install plugins, a maintained Node.js LTS release with `node` and `npx` available to the client, and a browser on the same computer for authorization.
 
 All routes need internet access. The Galaxy MCP service is hosted on AWS; analyses run on your chosen Galaxy site. You do not need to deploy a server, install Galaxy, run containers or have an AWS account.
 
 ## Install
 
-### ChatGPT — complete personal plugin
+### ChatGPT Web — personal account
 
-Galaxy has been submitted to OpenAI and is currently under review. It is not yet listed in the public ChatGPT Plugins Directory. You can install and test a complete personal plugin before public approval by connecting the service, then packaging its skills with that connection. Follow both parts below. See [OpenAI's complete-plugin setup](https://developers.openai.com/plugins/build/plugins#create-and-test-a-plugin-locally-with-an-mcp-server).
+Galaxy has been submitted to OpenAI and is currently under review. It is not yet listed in the public ChatGPT Plugins Directory. The personal setup below matches the installation video: add the Galaxy connection, upload Galaxy Analysis, then use both in a new **Chat** conversation. These are two separate installations, not a single uploaded plugin package.
 
-#### 1. Connect your Galaxy account on ChatGPT Web
+Before starting, check that your account offers both Developer mode and a skill-upload control under **Plugins → Skills**. The upload route was verified on the account used for the walkthrough; it is not a guarantee of availability on every account. If skill upload is missing, consider the optional desktop setup below. If Developer mode is unavailable, check with your workspace administrator or use Claude Code or Codex. Attaching the ZIP to an ordinary chat does not install the skill.
 
-OpenAI documents Developer mode for personal Plus and Pro accounts; managed workspaces may restrict it. See [ChatGPT Developer mode](https://developers.openai.com/api/docs/guides/developer-mode). This step does not require Node.js or a repository download.
+#### 1. Prepare the Galaxy Analysis skill
+
+1. At the top of [this repository](https://github.com/goeckslab/galaxy-plugin), choose **Code → Download ZIP**, then extract the download.
+2. Open `plugins/galaxy-plugin/skills/` and locate the `galaxy-analysis` folder.
+3. Compress the **whole `galaxy-analysis` folder** into `galaxy-analysis.zip`. Keep its contents unchanged: `SKILL.md`, `agents/openai.yaml`, `references/runs.md` and `references/reports.md`.
+
+Upload this skill ZIP in step 3, not the whole repository archive or just `SKILL.md`.
+
+#### 2. Connect your Galaxy account
+
+If Galaxy is already connected on this account, reuse it instead of creating a duplicate. OpenAI documents Developer mode for personal Plus and Pro accounts; managed workspaces may restrict it. See [ChatGPT Developer mode](https://developers.openai.com/api/docs/guides/developer-mode).
 
 1. In [ChatGPT](https://chatgpt.com), open **Settings → Security and login** and enable **Developer mode**.
 2. Open [Plugins](https://chatgpt.com/plugins), then select **Create app** or the **+** button to add a developer-mode app.
@@ -68,11 +78,38 @@ OpenAI documents Developer mode for personal Plus and Pro accounts; managed work
    - **OAuth client secret:** leave empty; this is a public client, not a secret to request or invent.
 
 4. Follow [Connect your Galaxy account](#connect-your-galaxy-account) on `https://auth.galaxymcp.org`, then return to ChatGPT. Never paste a Galaxy key into a chat or the MCP URL.
-5. Open the new connection's details and copy its connection ID from the browser URL for the next step. This identifies your registered connection; it is not your Galaxy API key. If you already have a working Galaxy connection, reuse it instead of creating a duplicate.
+5. Confirm that the Galaxy connection is installed and connected. If its details offer **Connect** or **Sign in with Galaxy**, finish that authorization before continuing.
 
 The registered ChatGPT callback is `https://chatgpt.com/connector_platform_oauth_redirect`. If ChatGPT requires a different callback or cannot use the public client settings, report the setup problem in [GitHub Issues](https://github.com/goeckslab/galaxy-plugin/issues); do not switch to unauthenticated access or reuse another client's credentials.
 
-#### 2. Install the skill and tools as one plugin
+#### 3. Upload Galaxy Analysis
+
+1. Return to **Plugins → Skills** in ChatGPT Web.
+2. Choose **Create** or the **+** button, then **Upload from your computer**.
+3. Select `galaxy-analysis.zip` and wait for **Skill uploaded**.
+4. Open **Galaxy Analysis** and confirm it is installed. Its files should include `SKILL.md`, `agents/openai.yaml` and both files under `references/`.
+
+If Galaxy Analysis is already installed, inspect and reuse it; do not delete it or upload a duplicate just to follow the video.
+
+#### 4. Check both in a new Chat
+
+1. Start a new **Chat** conversation on ChatGPT Web; you do not need to switch to Work.
+2. Use the composer's plugin/skill picker to select both **Galaxy** and **Galaxy Analysis**. Keep the normal tool confirmations enabled.
+3. Ask for a read-only connection check:
+
+   ```text
+   Check my Galaxy connection and tell me which sites are connected.
+   Do not create histories, upload data or run an analysis.
+   ```
+
+Check the real tool response and site names. A successful connection check does not by itself prove that the skill is installed; verify the installed skill and its supporting files in step 3. You can then [browse an existing result](#try-an-existing-result-first) or follow the analysis demo above.
+
+<details>
+<summary>Optional: install a combined personal plugin in ChatGPT Desktop</summary>
+
+This is a separate installation route, not an extra step for the Web setup. It requires the ChatGPT desktop app and access to ChatGPT Work or Codex for Plugin Creator. See [OpenAI's local-plugin setup](https://developers.openai.com/plugins/build/plugins#create-and-test-a-plugin-locally-with-an-mcp-server).
+
+First register or reuse the Galaxy connection using step 2 above. Open its details and copy its connection ID from the browser URL. This identifies the registered connection; it is not your Galaxy API key.
 
 In ChatGPT Work, give the following prompt to `@plugin-creator`, replacing `<your connection ID>`. In Codex, use `$plugin-creator` instead. The agent can download the repository for you; you do not need to edit configuration files yourself.
 
@@ -94,7 +131,9 @@ then test the Galaxy connection with a read-only request.
 2. Check that the installed plugin lists **Galaxy Analysis** (`galaxy-analysis`) as well as the Galaxy connection. Confirm that the skill's supporting files, including `references/runs.md` and `references/reports.md`, are present; installing only `SKILL.md` is incomplete.
 3. Start a new Work conversation, select **Galaxy**, and try the [read-only example below](#try-an-existing-result-first). Keep the normal tool confirmations enabled, especially for actions that create data or start analyses.
 
-**Using only ChatGPT Web?** Registering the connection in part 1 gives you tools, not the complete installation described here. OpenAI documents the personal local marketplace in the desktop app; do not assume a local install is also available on the web. If your web client offers a complete-plugin installation entry, verify that both the skill and connection are available there before using it. Otherwise use the desktop route above for the complete plugin; a working tools-only connection is not proof of skill installation.
+Do not assume this local desktop package also appears on the web. For browser use, follow the separate connection and skill-upload steps above, if your account offers them.
+
+</details>
 
 ### Claude Code
 
@@ -129,7 +168,7 @@ Find your key on the Galaxy site you want to use: sign in, then open **User → 
 1. When the client starts the Galaxy connection, complete authorization in your browser. Check that the page is on `https://auth.galaxymcp.org` before entering a key.
 2. Select your sites and enter **your own** Galaxy API key for each selected site. Leave unused sites empty. Do not paste keys into a chat, repository or MCP configuration.
 3. Review the access and retention terms before approving. For Claude Code and Codex installations, the authorization page labels the connection **Galaxy for Claude Code**.
-4. Complete the plugin-installation steps for your client, then start a new conversation and try the [read-only example](#try-an-existing-result-first). Check that `galaxy-analysis` appears in the installed plugin's skills. A working connection alone does not verify that the skill is installed. Keep the client's normal tool confirmations enabled.
+4. Return to the setup steps for your client and finish installing Galaxy Analysis. Check that both the Galaxy connection and the skill are available in a new conversation, then try the [read-only example](#try-an-existing-result-first). A working connection alone does not verify that the skill is installed. Keep the client's normal tool confirmations enabled.
 
 You can connect accounts on the US (`usegalaxy.org`), Europe (`usegalaxy.eu`), Australia (`usegalaxy.org.au`), France (`usegalaxy.fr`) and Canada (`usegalaxy.ca`) sites. Need another site? [Request its addition](https://mcp.galaxymcp.org/support#request-site) through GitHub Issues. Include only public site information, never credentials or private data.
 
