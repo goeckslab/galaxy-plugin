@@ -19,6 +19,17 @@ Work with your Galaxy data from an AI assistant. Browse analysis histories, read
 
 Choose the instructions for the app you use below; you only need one installation route. The complete plugin includes the Galaxy tools and the `galaxy-analysis` skill: instructions that help the assistant select tools, check results and record how an analysis was performed. The hosted service connects your assistant to your Galaxy account using MCP (Model Context Protocol). Connecting that service is one part of installation, not a substitute for installing the skill.
 
+## Watch the ChatGPT Web walkthroughs
+
+Both videos include English narration and captions. Click a preview to watch on YouTube.
+
+| Set up Galaxy · 3 minutes | Run an analysis and explore results · 2 minutes |
+| --- | --- |
+| [![Watch the installation walkthrough](https://i.ytimg.com/vi/sUSN2iqwMdA/hqdefault.jpg)](https://www.youtube.com/watch?v=sUSN2iqwMdA) | [![Watch the product demonstration](https://i.ytimg.com/vi/kJa-c-BKibA/hqdefault.jpg)](https://www.youtube.com/watch?v=kJa-c-BKibA) |
+| Connect your Galaxy account, upload the Galaxy Analysis skill and check the connection. | Start a real analysis, browse history cards, preview reports and open the original outputs. |
+
+The installation video shows a personal Web connection plus a separate skill upload; it requires Developer mode and skill uploads to be available on your account. It is not a public-directory installation. The demo focuses on product controls, not scientific interpretation of the example results.
+
 ## What you need
 
 - Your own Galaxy account and API key on one or more supported sites. An API key grants access to your Galaxy account; treat it like a password and use non-sensitive example data for your first test.
