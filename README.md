@@ -1,5 +1,7 @@
 # Galaxy
 
+**Turn your ChatGPT chat into a Galaxy agent.**
+
 The easiest way to install is to give this prompt to your agent (replace the target app):
 
 ```text
@@ -21,12 +23,19 @@ Choose the instructions for the app you use below; you only need one installatio
 
 ## Watch the ChatGPT Web walkthroughs
 
-Both videos include English narration and captions. Click a preview to watch on YouTube.
+Play the videos here or open them on YouTube. Both include English narration and captions.
 
-| Set up Galaxy · 3 minutes | Run an analysis and explore results · 2 minutes |
-| --- | --- |
-| [![Watch the installation walkthrough](https://i.ytimg.com/vi/sUSN2iqwMdA/hqdefault.jpg)](https://www.youtube.com/watch?v=sUSN2iqwMdA) | [![Watch the product demonstration](https://i.ytimg.com/vi/kJa-c-BKibA/hqdefault.jpg)](https://www.youtube.com/watch?v=kJa-c-BKibA) |
-| Connect your Galaxy account, upload the Galaxy Analysis skill and check the connection. | Start a real analysis, browse history cards, preview reports and open the original outputs. |
+### Set up Galaxy · 3 minutes
+
+Connect your Galaxy account, upload the Galaxy Analysis skill and check the connection. [Watch on YouTube](https://www.youtube.com/watch?v=sUSN2iqwMdA).
+
+https://github.com/user-attachments/assets/51a695c0-091c-4223-b25d-3d297ace6c56
+
+### Run an analysis and explore results · 2 minutes
+
+Start a real analysis, browse history cards, preview reports and open the original outputs. [Watch on YouTube](https://www.youtube.com/watch?v=kJa-c-BKibA).
+
+https://github.com/user-attachments/assets/9f53939c-c609-4cd3-8c78-1e5e386ea342
 
 The installation video shows a personal Web connection plus a separate skill upload; it requires Developer mode and skill uploads to be available on your account. It is not a public-directory installation. The demo focuses on product controls, not scientific interpretation of the example results.
 
