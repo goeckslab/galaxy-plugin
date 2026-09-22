@@ -18,6 +18,7 @@ FILES = {
     f"{PLUGIN}/skills/galaxy-analysis/references/runs.md",
     f"{PLUGIN}/skills/galaxy-analysis/references/reports.md",
     f"{PLUGIN}/assets/README.md", f"{PLUGIN}/assets/galaxy-directory.png",
+    f"{PLUGIN}/assets/galaxy-logo.png",
 }
 MCP = {"mcpServers": {"galaxy": {
     "command": "npx",
@@ -44,6 +45,7 @@ def validate(files):
         else:
             assert not PRIVATE.search(data.decode()), f"Potential private content in {name}"
     read = lambda name: json.loads(files[name])
+    assert len(files[f"{PLUGIN}/assets/galaxy-logo.png"]) <= 10000, "Personal connection icon exceeds 10 KB"
     codex = read(f"{PLUGIN}/.codex-plugin/plugin.json")
     claude = read(f"{PLUGIN}/.claude-plugin/plugin.json")
     assert codex["name"] == claude["name"] == NAME

@@ -21,23 +21,33 @@ Work with your Galaxy data from an AI assistant. Browse analysis histories, read
 
 Choose the instructions for the app you use below; you only need one installation route. The setup has two parts: the Galaxy connection supplies tools, and the `galaxy-analysis` skill provides guidance for using them and checking results. On ChatGPT Web, connect the service and upload the skill separately. Claude Code and Codex install both through their plugin package. The hosted service connects your assistant to your Galaxy account using MCP (Model Context Protocol).
 
-## Watch the ChatGPT Web walkthroughs
+<a id="watch-the-chatgpt-web-walkthroughs"></a>
 
-Play the videos here or open them on YouTube. Both include English narration and captions.
+## Watch the walkthroughs
 
-### Set up Galaxy · 3 minutes
+Play the videos directly below. All three include English narration and captions.
 
-Connect your Galaxy account, upload the Galaxy Analysis skill and check the connection. [Watch on YouTube](https://www.youtube.com/watch?v=sUSN2iqwMdA).
+### Set up Galaxy in ChatGPT Web · 5:00
 
-https://github.com/user-attachments/assets/51a695c0-091c-4223-b25d-3d297ace6c56
+Add Galaxy with its logo, authorize your Galaxy account, upload the Galaxy Analysis skill and check the connection in a new Chat.
 
-### Run an analysis and explore results · 2 minutes
+https://github.com/user-attachments/assets/b7f7f3ee-514e-4415-b20d-f9abdeff5d62
 
-Start a real analysis, browse history cards, preview reports and open the original outputs. [Watch on YouTube](https://www.youtube.com/watch?v=kJa-c-BKibA).
+The installation video shows the current personal Web setup while the plugin awaits OpenAI review. It requires Developer mode and skill uploads on your account; it is not a public-directory installation.
 
-https://github.com/user-attachments/assets/9f53939c-c609-4cd3-8c78-1e5e386ea342
+### Run an analysis in ChatGPT · 2:41
 
-The installation video shows a personal Web connection plus a separate skill upload; it requires Developer mode and skill uploads to be available on your account. It is not a public-directory installation. The demo focuses on product controls, not scientific interpretation of the example results.
+Start a real paired-end read analysis, browse its history cards, inspect an HTML report preview and open the original interactive report in Galaxy.
+
+https://github.com/user-attachments/assets/bac7c2f2-6f52-4858-9783-f094a3f3be64
+
+### Run an analysis in Claude Desktop · 3:14
+
+With Galaxy already connected, analyze public yeast count data, check run status, browse files, preview a results table and open the original PDF report in Galaxy.
+
+https://github.com/user-attachments/assets/d1926a8e-af6b-4105-b804-54470619ff87
+
+The two demos focus on using the product and inspecting its outputs, not interpreting the scientific results.
 
 ## What you need
 
@@ -72,6 +82,7 @@ If Galaxy is already connected on this account, reuse it instead of creating a d
 3. Enter these connection settings:
 
    - **Name:** `Galaxy`
+   - **Icon:** upload [`galaxy-logo.png`](plugins/galaxy-plugin/assets/galaxy-logo.png) from `plugins/galaxy-plugin/assets/` in the extracted download. This is the Galaxy logo used for the submitted plugin and fits the form's 10 KB PNG limit.
    - **MCP server URL:** `https://mcp.galaxymcp.org/mcp`
    - **Authentication:** `OAuth`
    - **OAuth client ID:** `galaxy-chatgpt` (use the custom/static client fields if offered)
