@@ -23,6 +23,7 @@ FILES = {
 MCP = {"mcpServers": {"galaxy": {
     "command": "npx",
     "args": ["--yes", "mcp-remote@0.8.3", "https://mcp.galaxymcp.org/mcp", "3118",
+             "--resource", "https://mcp.galaxymcp.org/mcp",
              "--callback-path", "/callback", "--transport", "http-only",
              "--static-oauth-client-info",
              '{"client_id":"galaxy-claude-code","token_endpoint_auth_method":"none"}',
