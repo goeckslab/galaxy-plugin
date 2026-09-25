@@ -14,13 +14,14 @@ FILES = {
     "scripts/check_package.py",
     f"{PLUGIN}/.codex-plugin/plugin.json", f"{PLUGIN}/.claude-plugin/plugin.json",
     f"{PLUGIN}/.mcp.json", f"{PLUGIN}/skills/galaxy-analysis/SKILL.md",
+    f"{PLUGIN}/README.md", f"{PLUGIN}/LICENSE",
     f"{PLUGIN}/skills/galaxy-analysis/agents/openai.yaml",
     f"{PLUGIN}/skills/galaxy-analysis/references/runs.md",
     f"{PLUGIN}/skills/galaxy-analysis/references/reports.md",
     f"{PLUGIN}/assets/README.md", f"{PLUGIN}/assets/galaxy-directory.png",
     f"{PLUGIN}/assets/galaxy-logo.png",
 }
-MCP = {"mcpServers": {"galaxy": {
+CODEX_MCP = {"mcpServers": {"galaxy": {
     "command": "npx",
     "args": ["--yes", "mcp-remote@0.8.3", "https://mcp.galaxymcp.org/mcp", "3118",
              "--resource", "https://mcp.galaxymcp.org/mcp",
@@ -29,6 +30,10 @@ MCP = {"mcpServers": {"galaxy": {
              '{"client_id":"galaxy-claude-code","token_endpoint_auth_method":"none"}',
              "--auth-timeout", "300", "--silent"],
 }}}
+CLAUDE_MCP = {"galaxy": {
+    "type": "http", "url": "https://mcp.galaxymcp.org/mcp",
+    "oauth": {"clientId": "galaxy-claude-code", "callbackPort": 3118},
+}}
 PRIVATE = re.compile(
     r"/(?:Users|home|private)/|[A-Za-z]:\\(?:Users|Documents)\\|"
     r"https://(?:chatgpt\.com/c/|claude\.ai/chat/)|asdk_app_[A-Za-z0-9_]+|"
@@ -53,10 +58,14 @@ def validate(files):
     assert codex["version"] == claude["version"]
     assert "apps" not in codex and "apps" not in claude, "No private app mapping"
     assert codex["skills"] == "./skills/"
-    assert codex["mcpServers"] == claude["mcpServers"] == "./.mcp.json"
+    assert codex["mcpServers"] == "./.mcp.json"
+    assert claude["mcpServers"] == CLAUDE_MCP
+    assert claude["license"] == "MIT"
+    assert len(files[f"{PLUGIN}/README.md"].decode().split()) >= 40
+    assert files[f"{PLUGIN}/LICENSE"].startswith(b"MIT License\n")
     for icon in ("logo", "composerIcon"):
         assert codex["interface"][icon] == "./assets/galaxy-directory.png"
-    assert read(f"{PLUGIN}/.mcp.json") == MCP, "OAuth/endpoint/dependency contract changed"
+    assert read(f"{PLUGIN}/.mcp.json") == CODEX_MCP, "Codex OAuth/endpoint contract changed"
     for path, source in (
         (".agents/plugins/marketplace.json", {"source": "local", "path": f"./{PLUGIN}"}),
         (".claude-plugin/marketplace.json", f"./{PLUGIN}"),
@@ -86,7 +95,7 @@ def check(root):
     files = {}
     for path in root.rglob("*"):
         relative = path.relative_to(root)
-        if relative.parts[0] == ".git":
+        if relative.parts[0] == ".git" or relative.as_posix() == "to-do.md":
             continue
         assert not path.is_symlink(), f"Symlink is not distributable: {relative}"
         if path.is_file():

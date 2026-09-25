@@ -6,7 +6,7 @@ The easiest way to install is to give this prompt to your agent (replace the tar
 
 ```text
 Install Galaxy from https://github.com/goeckslab/galaxy-plugin in <target app,
-such as ChatGPT Web (Chat or Work), Claude Code, or Codex>. Follow the
+such as ChatGPT Web (Chat or Work), Claude chat, Claude Code, or Codex>. Follow the
 repository's setup instructions for that app. Install both the Galaxy tools
 and the bundled galaxy-analysis skill with all its supporting files, confirm it is available,
 and verify the connection with a read-only request. If my client cannot make
@@ -19,7 +19,7 @@ data, or chat content in the issue.
 
 Work with your Galaxy data from an AI assistant. Browse analysis histories, read reports, find workflows, run bioinformatics tools and check their results. Analyses run on the Galaxy site you choose; the assistant helps you prepare them and interpret the outputs.
 
-Choose the instructions for the app you use below; you only need one installation route. The setup has two parts: the Galaxy connection supplies tools, and the `galaxy-analysis` skill provides guidance for using them and checking results. In ChatGPT Web, whether you use Chat or Work, connect the service and upload the skill separately. Claude Code and Codex install both through their plugin package. The hosted service connects your assistant to your Galaxy account using MCP (Model Context Protocol).
+Choose the instructions for the app you use below; you only need one installation route. The setup has two parts: the Galaxy connection supplies tools, and the `galaxy-analysis` skill provides guidance for using them and checking results. In ChatGPT Web, whether you use Chat or Work, connect the service and upload the skill separately. Claude chat, Claude Code and Codex install the skill and connection reference through their plugin package. The hosted service connects your assistant to your Galaxy account using MCP (Model Context Protocol).
 
 <a id="watch-the-chatgpt-web-walkthroughs"></a>
 
@@ -53,7 +53,9 @@ The two demos focus on using the product and inspecting its outputs, not interpr
 
 - Your own Galaxy account and API key on one or more supported sites. An API key grants access to your Galaxy account; treat it like a password and use non-sensitive example data for your first test.
 - **ChatGPT Web (Chat or Work):** sign in to an account with **Developer mode** and **Skills → Upload from your computer** available. Both are needed for the browser setup with tools and the skill shown in the video. Availability depends on your account and workspace policy; this route does not require the desktop app, Plugin Creator or Codex.
-- **Claude Code or Codex:** permission to install plugins, a maintained Node.js LTS release with `node` and `npx` available to the client, and a browser on the same computer for authorization.
+- **Claude chat (Web or Desktop):** a paid Claude plan with plugin installation available. On Team or Enterprise, an owner must make the remote connector available to the organization before members can connect it.
+- **Claude Code:** permission to install plugins and a browser for authorization.
+- **Codex:** permission to install plugins, a maintained Node.js LTS release with `node` and `npx` available to the client, and a browser on the same computer for authorization.
 
 All routes need internet access. The Galaxy MCP service is hosted on AWS; analyses run on your chosen Galaxy site. You do not need to deploy a server, install Galaxy, run containers or have an AWS account.
 
@@ -146,6 +148,12 @@ Installing this local desktop package does not by itself verify that the complet
 
 </details>
 
+### Claude chat — Web or Desktop
+
+Until Galaxy is listed in Claude's directory, install it from this GitHub repository: open **Customize → Plugins → Add → Add marketplace**, enter `https://github.com/goeckslab/galaxy-plugin`, then install **Galaxy**. Open the installed plugin's **Connectors** tab and connect the Galaxy service. Follow [Connect your Galaxy account](#connect-your-galaxy-account), then try the read-only request below. The package includes Galaxy Analysis; do not upload the skill separately.
+
+On a Team or Enterprise account, an owner may need to add or allow the Galaxy remote connector first. If the Connectors tab says the server runs only in local sessions, update the marketplace plugin to version 0.4.1 or later; earlier packages used a local bridge that Claude chat cannot start. See [Claude's plugin installation guide](https://claude.com/docs/plugins/platform-support).
+
 ### Claude Code
 
 In Claude Code, run these two commands. The client downloads the package from GitHub; no manual repository download is needed.
@@ -155,7 +163,7 @@ In Claude Code, run these two commands. The client downloads the package from Gi
 /plugin install galaxy-plugin@galaxy-plugins
 ```
 
-Follow the activation prompt, then use `/mcp` to complete [Galaxy authorization](#connect-your-galaxy-account). The default installation is for your own user account. This installs both the connection and the skill; you do not need to import the skill separately. See [Claude plugin installation](https://code.claude.com/docs/en/discover-plugins).
+Follow the activation prompt, then use `/mcp` to complete [Galaxy authorization](#connect-your-galaxy-account). The default installation is for your own user account. This installs both the connection and the skill; you do not need to import the skill separately or install a local MCP bridge. See [Claude plugin installation](https://code.claude.com/docs/en/discover-plugins).
 
 ### Codex
 
@@ -178,7 +186,7 @@ Find your key on the Galaxy site you want to use: sign in, then open **User → 
 
 1. When the client starts the Galaxy connection, complete authorization in your browser. Check that the page is on `https://auth.galaxymcp.org` before entering a key.
 2. Select your sites and enter **your own** Galaxy API key for each selected site. Leave unused sites empty. Do not paste keys into a chat, repository or MCP configuration.
-3. Review the access and retention terms before approving. For Claude Code and Codex installations, the authorization page labels the connection **Galaxy for Claude Code**.
+3. Review the access and retention terms before approving. Claude Code and Codex installations may label the connection **Galaxy for Claude Code**; the label identifies the OAuth client, not which Galaxy site you selected.
 4. Return to the setup steps for your client and finish installing Galaxy Analysis. Check that both the Galaxy connection and the skill are available in a new conversation, then try the [read-only example](#try-an-existing-result-first). A working connection alone does not verify that the skill is installed. Keep the client's normal tool confirmations enabled.
 
 You can connect accounts on the US (`usegalaxy.org`), Europe (`usegalaxy.eu`), Australia (`usegalaxy.org.au`), France (`usegalaxy.fr`) and Canada (`usegalaxy.ca`) sites. Need another site? [Request its addition](https://mcp.galaxymcp.org/support#request-site) through GitHub Issues. Include only public site information, never credentials or private data.
@@ -207,7 +215,7 @@ Interactive history, report and status cards require compatible MCP UI support i
 ## Troubleshooting and limits
 
 - **No Plugin Creator in ChatGPT Web:** follow the ChatGPT Web steps above; Plugin Creator is only part of the optional combined desktop-plugin route. Sign in first, then check whether your account exposes Developer mode and skill upload.
-- **Command not found (desktop):** ensure the desktop app can find `node` and `npx`; restart it after installing Node. Follow your organization's software policy. These commands are not needed for ChatGPT Web.
+- **Command not found (Codex):** ensure the Codex app can find `node` and `npx`; restart it after installing Node. Follow your organization's software policy. These commands are not needed for ChatGPT Web or Claude chat.
 - **Authorization fails:** use the settings for your target client. ChatGPT Web uses `galaxy-chatgpt` and its HTTPS callback above; the Claude Code and Codex packages use port **3118** and `/callback`. Do not interchange them. Complete one login at a time and close another pending Galaxy authorization before retrying.
 - **Duplicate tools:** keep only the intended Galaxy connection enabled in the client. Do not overwrite unrelated MCP settings.
 - **Missing cards:** ask for a text summary and source links; card support varies by client.
