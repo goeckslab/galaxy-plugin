@@ -3,7 +3,7 @@
   "version": "0.4.1",
   "description": "Use Galaxy data, tools and workflows from desktop AI assistants.",
   "author": {
-    "name": "JUNHAO QIU"
+    "name": "Goecks Lab"
   },
   "keywords": [
     "bioinformatics",
@@ -15,7 +15,7 @@
     "displayName": "Galaxy",
     "shortDescription": "Galaxy data and analyses",
     "longDescription": "Plan, run, verify, and document Galaxy analyses through a connected Galaxy MCP server.",
-    "developerName": "JUNHAO QIU",
+    "developerName": "Goecks Lab",
     "composerIcon": "./assets/galaxy-directory.png",
     "logo": "./assets/galaxy-directory.png",
     "category": "Research",

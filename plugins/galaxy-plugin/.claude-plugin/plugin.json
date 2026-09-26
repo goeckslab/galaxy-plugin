@@ -4,7 +4,7 @@
   "displayName": "Galaxy",
   "description": "Explore Galaxy histories, run analyses, and inspect results from Claude chat or Claude Code.",
   "author": {
-    "name": "JUNHAO QIU"
+    "name": "Goecks Lab"
   },
   "license": "MIT",
   "mcpServers": {

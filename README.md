@@ -226,4 +226,4 @@ Interactive history, report and status cards require compatible MCP UI support i
 
 For bugs, installation help or site requests, open a [GitHub issue](https://github.com/goeckslab/galaxy-plugin/issues) with your app/version, reproduction steps and a redacted error, or the public site details. Issues are public; do not include credentials, private datasets or chat content. For privacy, deletion or account concerns, use the [private contact form](https://mcp.galaxymcp.org/support#private-contact). It is hosted by Google Forms; responses are not published. Service information: [Galaxy MCP](https://mcp.galaxymcp.org).
 
-Maintained by JUNHAO QIU. See the Galaxy logo's [attribution and usage conditions](plugins/galaxy-plugin/assets/README.md).
+Maintained by Goecks Lab. See the Galaxy logo's [attribution and usage conditions](plugins/galaxy-plugin/assets/README.md).

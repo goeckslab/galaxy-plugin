@@ -1,7 +1,7 @@
 {
   "name": "galaxy-plugins",
   "owner": {
-    "name": "JUNHAO QIU"
+    "name": "Goecks Lab"
   },
   "description": "Galaxy data, bioinformatics tools and evidence-based analysis guidance.",
   "plugins": [
