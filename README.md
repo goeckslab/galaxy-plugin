@@ -35,11 +35,11 @@ https://github.com/user-attachments/assets/b7f7f3ee-514e-4415-b20d-f9abdeff5d62
 
 The installation video shows the current personal Web setup while the plugin awaits OpenAI review. It requires Developer mode and skill uploads on your account; it is not a public-directory installation.
 
-### Run an analysis in ChatGPT · 2:41
+### Run an analysis in ChatGPT · 2:11
 
-Start a real paired-end read analysis, browse its history cards, inspect an HTML report preview and open the original interactive report in Galaxy.
+Run a fresh yeast RNA-seq analysis on Galaxy, then open the workspace beside the conversation to browse its outputs. Preview real tables and a PDF report, load more or fewer files, and scroll sideways through wide tables.
 
-https://github.com/user-attachments/assets/bac7c2f2-6f52-4858-9783-f094a3f3be64
+https://github.com/user-attachments/assets/64097d57-dc15-422e-b18e-eb743216f68d
 
 ### Run an analysis in Claude Desktop · 3:14
 
