@@ -37,11 +37,10 @@ This is a personal custom-connector setup, not a public-directory installation. 
 3. Enter these settings:
 
    - **Name:** `Galaxy`
-   - **MCP server URL:** `https://mcp.galaxymcp.org/mcp`
-   - **Authentication:** `OAuth`
+   - **Server URL:** `https://mcp.galaxymcp.org/mcp`
 
-   Use the automatic/published client identity when offered. Do not enter a Galaxy API key in these settings, and do not reuse the ChatGPT or Claude client ID. No client secret is needed for this public-client flow.
-4. Follow the browser redirect to `https://auth.galaxymcp.org` and complete [Galaxy authorization](#authorize-your-galaxy-account).
+   The current form asks only for a name and server URL. Do not enter a Galaxy API key here. Grok discovers the service's OAuth settings automatically; no client ID or secret is needed in this form.
+4. Choose **Add Connector**, follow the browser redirect to `https://auth.galaxymcp.org`, and complete [Galaxy authorization](#authorize-your-galaxy-account).
 5. Return to Grok and confirm Galaxy is connected. Open a new conversation, enable Galaxy if the interface asks, and send the [read-only check](#check-the-connection).
 
 The service supports Grok's published web OAuth identity. Successful authorization and discovery must be followed by a real tool response; reaching a consent page alone is not a completed connection. Interactive card rendering in Grok has not been verified. Ask for text, tables and source links if cards are unavailable.
