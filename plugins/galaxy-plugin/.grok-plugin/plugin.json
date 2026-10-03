@@ -1,0 +1,12 @@
+{
+  "name": "galaxy-plugin",
+  "version": "0.4.1",
+  "description": "Browse Galaxy histories, run analyses, inspect reports, and manage authorized Galaxy sites from Grok Build.",
+  "author": {
+    "name": "Goecks Lab"
+  },
+  "homepage": "https://github.com/goeckslab/galaxy-plugin",
+  "license": "MIT",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

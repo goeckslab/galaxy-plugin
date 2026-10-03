@@ -6,7 +6,7 @@ The easiest way to install is to give this prompt to your agent (replace the tar
 
 ```text
 Install Galaxy from https://github.com/goeckslab/galaxy-plugin in <target app,
-such as ChatGPT Web (Chat or Work), Claude chat, Claude Code, or Codex>. Follow the
+such as ChatGPT Web (Chat or Work), Claude chat, Claude Code, Codex, or Grok Build>. Follow the
 repository's setup instructions for that app. Install both the Galaxy tools
 and the bundled galaxy-analysis skill with all its supporting files, confirm it is available,
 and verify the connection with a read-only request. If my client cannot make
@@ -56,6 +56,8 @@ The two demos focus on using the product and inspecting its outputs, not interpr
 - **Claude chat (Web or Desktop):** a paid Claude plan with plugin installation available. On Team or Enterprise, an owner must make the remote connector available to the organization before members can connect it.
 - **Claude Code:** permission to install plugins and a browser for authorization.
 - **Codex:** permission to install plugins, a maintained Node.js LTS release with `node` and `npx` available to the client, and a browser on the same computer for authorization.
+- **Grok Build:** the Grok Build client, a maintained Node.js LTS release with `node` and `npx`, and a browser for authorization.
+- **Grok.com:** a signed-in Grok account with custom connectors available; managed accounts may need an administrator to enable the connection.
 
 All routes need internet access. The Galaxy MCP service is hosted on AWS; analyses run on your chosen Galaxy site. You do not need to deploy a server, install Galaxy, run containers or have an AWS account.
 
@@ -175,6 +177,10 @@ codex plugin add galaxy-plugin@galaxy-plugins
 ```
 
 Complete the setup prompts. This installs both the connection and the skill. If your version does not recognize `codex plugin add`, open the plugin browser in Codex (or `/plugins` in its CLI), select **Galaxy** from **galaxy-plugins**, and install. Adding the catalog alone does not install the plugin. See [OpenAI plugin installation and distribution](https://developers.openai.com/plugins/build/plugins).
+
+### Grok Build and Grok.com
+
+Grok Build installs the Galaxy connection and Galaxy Analysis skill together. Grok.com connects the Galaxy tools through its custom MCP settings; this does not install the skill or add Galaxy to its public directory. Follow the [Grok installation and web setup guide](docs/grok.md) for the route you use, authorization and a read-only check.
 
 ### ChatGPT workspace marketplace import
 

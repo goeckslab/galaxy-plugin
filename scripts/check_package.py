@@ -11,7 +11,8 @@ PLUGIN = f"plugins/{NAME}"
 FILES = {
     "README.md", ".gitignore", ".github/workflows/check.yml",
     ".agents/plugins/marketplace.json", ".claude-plugin/marketplace.json",
-    "scripts/check_package.py",
+    "scripts/check_package.py", "docs/grok.md",
+    f"{PLUGIN}/.grok-plugin/plugin.json",
     f"{PLUGIN}/.codex-plugin/plugin.json", f"{PLUGIN}/.claude-plugin/plugin.json",
     f"{PLUGIN}/.mcp.json", f"{PLUGIN}/skills/galaxy-analysis/SKILL.md",
     f"{PLUGIN}/README.md", f"{PLUGIN}/LICENSE",
@@ -55,6 +56,11 @@ def validate(files):
     codex = read(f"{PLUGIN}/.codex-plugin/plugin.json")
     claude = read(f"{PLUGIN}/.claude-plugin/plugin.json")
     assert codex["name"] == claude["name"] == NAME
+    grok = read(f"{PLUGIN}/.grok-plugin/plugin.json")
+    assert grok["name"] == NAME and grok["version"] == codex["version"]
+    assert grok["skills"] == "./skills/" and grok["mcpServers"] == "./.mcp.json"
+    assert grok["author"] == {"name": "Goecks Lab"} and grok["license"] == "MIT"
+    assert "apps" not in grok and "hooks" not in grok, "No private mappings or lifecycle hooks"
     assert codex["version"] == claude["version"]
     assert "apps" not in codex and "apps" not in claude, "No private app mapping"
     assert codex["skills"] == "./skills/"
