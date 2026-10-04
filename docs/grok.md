@@ -4,7 +4,9 @@ Choose **Grok Build** for the plugin bundle, including the Galaxy Analysis skill
 
 ## Grok Build: install the plugin
 
-You need [Grok Build](https://docs.x.ai/build/overview), a maintained Node.js LTS release with `node` and `npx` available, and a browser on the same computer for authorization. Follow your organization's software policy.
+Grok Build is a terminal coding agent, not the Grok chat website. For Galaxy in browser chat, use the [Grok.com instructions](#grokcom-connect-in-web-chat) below.
+
+You need [Grok Build](https://docs.x.ai/build/overview) and a browser on the same computer for authorization. This route uses Grok's native HTTP connection; no Node.js or local bridge is required. Follow your organization's software policy.
 
 1. In a terminal, install directly from GitHub:
 
@@ -20,9 +22,13 @@ You need [Grok Build](https://docs.x.ai/build/overview), a maintained Node.js LT
    grok inspect
    ```
 
-   Confirm that Galaxy supplies one `galaxy-analysis` skill and one `galaxy` MCP connection. Do not add a second standalone Galaxy MCP connection. The client starts its connection adapter automatically; Galaxy analyses still run on the selected Galaxy site.
-3. Start `grok`, open `/mcps`, select Galaxy, and choose the authentication action if requested. Complete [Galaxy authorization](#authorize-your-galaxy-account) in your browser, then return to Grok Build.
+   Confirm that Galaxy supplies one `galaxy-analysis` skill and one `galaxy` MCP connection. Do not add a second standalone Galaxy MCP connection. Grok connects directly to the hosted service; Galaxy analyses run on the selected Galaxy site.
+3. Start `grok` and sign in if prompted. Open `/mcps`, expand the Galaxy plugin group, select `galaxy`, and press `i` to authenticate. Complete [Galaxy authorization](#authorize-your-galaxy-account) in your browser, then return to Grok Build.
 4. Start with the [read-only check](#check-the-connection). You can invoke `/galaxy-analysis` for analysis guidance; the skill and its supporting files are already included.
+
+The authorization page identifies **Grok Build**, with a separate OAuth client identity from the other CLI clients. Complete the browser authorization before checking the connection. If you cancel or let authorization expire, retry the authentication action from `/mcps`; reaching the consent page alone does not mean Galaxy is connected.
+
+The return address may be `127.0.0.1`: this is the OAuth callback to Grok Build on your own computer, not the address of the Galaxy MCP service. Keep Grok Build running while you authorize it. The MCP service remains on AWS.
 
 Grok Build is a terminal agent. Use text, tables and Galaxy source links there; this installation does not promise ChatGPT-style interactive cards. For updates, run `grok plugin update galaxy-plugin`, review the changes, and restart your session.
 
@@ -73,7 +79,7 @@ in a compact table and link the original report. Do not run a new analysis.
 
 ## Troubleshooting and disconnecting
 
-- **Build cannot start Galaxy:** check that `node` and `npx` are available, then run `grok mcp doctor galaxy`. Restart the client after installing Node.
+- **Build cannot connect to Galaxy:** complete authentication from `/mcps`, then run `grok mcp doctor galaxy`. Confirm that it reports the HTTP endpoint and a healthy connection. A missing-token response before authorization is not a successful connection.
 - **Authorization fails:** close duplicate pending Galaxy login tabs and retry one flow. Do not paste a key into chat or disable authentication.
 - **No skill in Grok.com:** the custom connection supplies tools only; it is not the Build plugin bundle.
 - **No cards:** use text, tables and original Galaxy links. Client UI support is separate from tool connectivity.

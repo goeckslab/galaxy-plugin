@@ -12,7 +12,7 @@ FILES = {
     "README.md", ".gitignore", ".github/workflows/check.yml",
     ".agents/plugins/marketplace.json", ".claude-plugin/marketplace.json",
     "scripts/check_package.py", "docs/grok.md",
-    f"{PLUGIN}/.grok-plugin/plugin.json",
+    f"{PLUGIN}/.grok-plugin/plugin.json", f"{PLUGIN}/.grok-plugin/mcp.json",
     f"{PLUGIN}/.codex-plugin/plugin.json", f"{PLUGIN}/.claude-plugin/plugin.json",
     f"{PLUGIN}/.mcp.json", f"{PLUGIN}/skills/galaxy-analysis/SKILL.md",
     f"{PLUGIN}/README.md", f"{PLUGIN}/LICENSE",
@@ -58,7 +58,12 @@ def validate(files):
     assert codex["name"] == claude["name"] == NAME
     grok = read(f"{PLUGIN}/.grok-plugin/plugin.json")
     assert grok["name"] == NAME and grok["version"] == codex["version"]
-    assert grok["skills"] == "./skills/" and grok["mcpServers"] == "./.mcp.json"
+    assert grok["skills"] == "./skills/" and grok["mcpServers"] == "./.grok-plugin/mcp.json"
+    grok_server = read(f"{PLUGIN}/.grok-plugin/mcp.json")["mcpServers"]["galaxy"]
+    assert grok_server == {
+        "type": "http", "url": "https://mcp.galaxymcp.org/mcp",
+        "oauth": {"clientId": "galaxy-grok-build", "callbackPort": 3120},
+    }, "Grok native HTTP endpoint or OAuth identity changed"
     assert grok["author"] == {"name": "Goecks Lab"} and grok["license"] == "MIT"
     assert "apps" not in grok and "hooks" not in grok, "No private mappings or lifecycle hooks"
     assert codex["version"] == claude["version"]

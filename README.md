@@ -56,7 +56,7 @@ The two demos focus on using the product and inspecting its outputs, not interpr
 - **Claude chat (Web or Desktop):** a paid Claude plan with plugin installation available. On Team or Enterprise, an owner must make the remote connector available to the organization before members can connect it.
 - **Claude Code:** permission to install plugins and a browser for authorization.
 - **Codex:** permission to install plugins, a maintained Node.js LTS release with `node` and `npx` available to the client, and a browser on the same computer for authorization.
-- **Grok Build:** the Grok Build client, a maintained Node.js LTS release with `node` and `npx`, and a browser for authorization.
+- **Grok Build:** the Grok Build client and a browser on the same computer for authorization. This route connects directly to the hosted service.
 - **Grok.com:** a signed-in Grok account with custom connectors available; managed accounts may need an administrator to enable the connection.
 
 All routes need internet access. The Galaxy MCP service is hosted on AWS; analyses run on your chosen Galaxy site. You do not need to deploy a server, install Galaxy, run containers or have an AWS account.

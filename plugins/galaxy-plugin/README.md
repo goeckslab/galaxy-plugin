@@ -4,7 +4,7 @@ Explore your Galaxy histories, run bioinformatics analyses, check progress, and 
 
 ## Grok Build
 
-Install with `grok plugin install 'goeckslab/galaxy-plugin#plugins/galaxy-plugin'` and review the trust prompt. The package includes Galaxy Analysis and one Galaxy connection; do not add a duplicate MCP server. A maintained Node.js LTS release with `node` and `npx` is required for the connection adapter. Open `/mcps` in Grok Build to authorize Galaxy, then ask for a read-only connection check. Use text, tables and Galaxy links in the terminal. See the [Grok setup guide](https://github.com/goeckslab/galaxy-plugin/blob/main/docs/grok.md) for the full instructions and the separate Grok.com web route.
+Install with `grok plugin install 'goeckslab/galaxy-plugin#plugins/galaxy-plugin'` and review the trust prompt. The package includes Galaxy Analysis and one Galaxy connection; do not add a duplicate MCP server. Grok connects directly over HTTP, without a local bridge or Node.js requirement. Open `/mcps` in Grok Build to authorize Galaxy, then ask for a read-only connection check. Use text, tables and Galaxy links in the terminal. See the [Grok setup guide](https://github.com/goeckslab/galaxy-plugin/blob/main/docs/grok.md) for the full instructions and the separate Grok.com web route.
 
 ## Claude chat
 
@@ -14,7 +14,7 @@ The service can access only the Galaxy sites and account permissions you authori
 
 ## Network and credentials
 
-Grok Build uses the version-pinned `mcp-remote@0.8.3` adapter; `npx` may download it and its dependencies from the npm registry on first use. The adapter connects to `https://mcp.galaxymcp.org/mcp` and opens `https://auth.galaxymcp.org` for authorization. The hosted service calls the Galaxy sites you select with your account's API keys. Its tools can read data and run analyses within your authorized account permissions; keep tool confirmations enabled.
+Grok Build connects directly to `https://mcp.galaxymcp.org/mcp` and opens `https://auth.galaxymcp.org` for authorization. Its Grok-specific configuration does not start a local adapter or download npm dependencies. The hosted service calls the Galaxy sites you select with your account's API keys. Its tools can read data and run analyses within your authorized account permissions; keep tool confirmations enabled.
 
 Enter keys only on the authorization site, never in chat or plugin configuration. The package contains no credentials, lifecycle hooks, or arbitrary shell-execution MCP tool. Grok can receive the Galaxy data and reports you request. See the [privacy notice](https://mcp.galaxymcp.org/privacy) and [Grok setup guide](https://github.com/goeckslab/galaxy-plugin/blob/main/docs/grok.md) for access and revocation details.
 

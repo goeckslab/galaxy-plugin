@@ -8,5 +8,5 @@
   "homepage": "https://github.com/goeckslab/galaxy-plugin",
   "license": "MIT",
   "skills": "./skills/",
-  "mcpServers": "./.mcp.json"
+  "mcpServers": "./.grok-plugin/mcp.json"
 }

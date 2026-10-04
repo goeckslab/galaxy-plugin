@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "galaxy": {
+      "type": "http",
+      "url": "https://mcp.galaxymcp.org/mcp",
+      "oauth": {
+        "clientId": "galaxy-grok-build",
+        "callbackPort": 3120
+      }
+    }
+  }
+}
