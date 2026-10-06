@@ -72,6 +72,14 @@ def validate(files):
     assert codex["mcpServers"] == "./.mcp.json"
     assert claude["mcpServers"] == CLAUDE_MCP
     assert claude["license"] == "MIT"
+    assert claude["icon"] == "./assets/galaxy-directory.png"
+    for field, url in {
+        "documentationUrl": "https://github.com/goeckslab/galaxy-plugin#install",
+        "supportUrl": "https://mcp.galaxymcp.org/support",
+        "privacyPolicyUrl": "https://mcp.galaxymcp.org/privacy",
+        "termsOfServiceUrl": "https://mcp.galaxymcp.org/terms",
+    }.items():
+        assert claude[field] == url, f"Claude directory link changed: {field}"
     assert len(files[f"{PLUGIN}/README.md"].decode().split()) >= 40
     assert files[f"{PLUGIN}/LICENSE"].startswith(b"MIT License\n")
     for icon in ("logo", "composerIcon"):

@@ -2,11 +2,16 @@
   "name": "galaxy-plugin",
   "version": "0.4.1",
   "displayName": "Galaxy",
-  "description": "Explore Galaxy histories, run analyses, and inspect results from Claude chat or Claude Code.",
+  "description": "Explore Galaxy histories, run analyses, inspect results, and manage authorized sites from Claude chat or Claude Code.",
   "author": {
     "name": "Goecks Lab"
   },
   "license": "MIT",
+  "icon": "./assets/galaxy-directory.png",
+  "documentationUrl": "https://github.com/goeckslab/galaxy-plugin#install",
+  "supportUrl": "https://mcp.galaxymcp.org/support",
+  "privacyPolicyUrl": "https://mcp.galaxymcp.org/privacy",
+  "termsOfServiceUrl": "https://mcp.galaxymcp.org/terms",
   "mcpServers": {
     "galaxy": {
       "type": "http",
