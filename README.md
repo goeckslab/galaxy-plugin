@@ -55,7 +55,7 @@ The two demos focus on using the product and inspecting its outputs, not interpr
 - **ChatGPT Web (Chat or Work):** sign in to an account with **Developer mode** and **Skills → Upload from your computer** available. Both are needed for the browser setup with tools and the skill shown in the video. Availability depends on your account and workspace policy; this route does not require the desktop app, Plugin Creator or Codex.
 - **Claude chat (Web or Desktop):** a paid Claude plan with plugin installation available. On Team or Enterprise, an owner must make the remote connector available to the organization before members can connect it.
 - **Claude Code:** permission to install plugins and a browser for authorization.
-- **Codex:** permission to install plugins, a maintained Node.js LTS release with `node` and `npx` available to the client, and a browser on the same computer for authorization.
+- **Codex:** permission to install plugins and a browser on the same computer for authorization. This route connects directly to the hosted service.
 - **Grok Build:** the Grok Build client and a browser on the same computer for authorization. This route connects directly to the hosted service.
 - **Grok.com:** a signed-in Grok account with custom connectors available; managed accounts may need an administrator to enable the connection.
 
@@ -87,12 +87,12 @@ If Galaxy is already connected on this account, reuse it instead of creating a d
 
    - **Name:** `Galaxy`
    - **Icon:** upload [`galaxy-logo.png`](plugins/galaxy-plugin/assets/galaxy-logo.png) from `plugins/galaxy-plugin/assets/` in the extracted download. This is the Galaxy logo used for the submitted plugin and fits the form's 10 KB PNG limit.
-   - **MCP server URL:** `https://mcp.galaxymcp.org/mcp`
+   - **MCP server URL:** `https://mcp.galaxyproject.org/mcp`
    - **Authentication:** `OAuth`
    - **OAuth client ID:** `galaxy-chatgpt` (use the custom/static client fields if offered)
    - **OAuth client secret:** leave empty; this is a public client, not a secret to request or invent.
 
-4. Follow [Connect your Galaxy account](#connect-your-galaxy-account) on `https://auth.galaxymcp.org`, then return to ChatGPT. Never paste a Galaxy key into a chat or the MCP URL.
+4. Follow [Connect your Galaxy account](#connect-your-galaxy-account) on `https://mcp.galaxyproject.org`, then return to ChatGPT. Never paste a Galaxy key into a chat or the MCP URL.
 5. Confirm that the Galaxy connection is installed and connected. If its details offer **Connect** or **Sign in with Galaxy**, finish that authorization before continuing.
 
 The registered ChatGPT callback is `https://chatgpt.com/connector_platform_oauth_redirect`. If ChatGPT requires a different callback or cannot use the public client settings, report the setup problem in [GitHub Issues](https://github.com/goeckslab/galaxy-plugin/issues); do not switch to unauthenticated access or reuse another client's credentials.
@@ -154,7 +154,7 @@ Installing this local desktop package does not by itself verify that the complet
 
 Until Galaxy is listed in Claude's directory, install it from this GitHub repository: open **Customize → Plugins → Add → Add marketplace**, enter `https://github.com/goeckslab/galaxy-plugin`, then install **Galaxy**. Open the installed plugin's **Connectors** tab and connect the Galaxy service. Follow [Connect your Galaxy account](#connect-your-galaxy-account), then try the read-only request below. The package includes Galaxy Analysis; do not upload the skill separately.
 
-On a Team or Enterprise account, an owner may need to add or allow the Galaxy remote connector first. If the Connectors tab says the server runs only in local sessions, update the marketplace plugin to version 0.4.1 or later; earlier packages used a local bridge that Claude chat cannot start. See [Claude's plugin installation guide](https://claude.com/docs/plugins/platform-support).
+Installing the plugin does not add or authorize its connector. On a Team or Enterprise account, ask an owner to add the Galaxy remote connector for the organization; each member then authorizes their own Galaxy account. See [Claude's bundled connector guidance](https://claude.com/docs/plugins/overview#bundled-connectors).
 
 ### Claude Code
 
@@ -176,7 +176,7 @@ codex plugin marketplace add goeckslab/galaxy-plugin
 codex plugin add galaxy-plugin@galaxy-plugins
 ```
 
-Complete the setup prompts. This installs both the connection and the skill. If your version does not recognize `codex plugin add`, open the plugin browser in Codex (or `/plugins` in its CLI), select **Galaxy** from **galaxy-plugins**, and install. Adding the catalog alone does not install the plugin. See [OpenAI plugin installation and distribution](https://developers.openai.com/plugins/build/plugins).
+Complete the setup prompts. This installs both the connection and the skill. If Codex lists Galaxy as not logged in, run `codex mcp login galaxy`. If your version does not recognize `codex plugin add`, open the plugin browser in Codex (or `/plugins` in its CLI), select **Galaxy** from **galaxy-plugins**, and install. Adding the catalog alone does not install the plugin. See [OpenAI plugin installation and distribution](https://developers.openai.com/plugins/build/plugins).
 
 ### Grok Build and Grok.com
 
@@ -190,16 +190,16 @@ If your workspace offers GitHub marketplace imports, ask its administrator to im
 
 Find your key on the Galaxy site you want to use: sign in, then open **User → Preferences → Manage API key**. Create a key there only if you do not already have one. See [Galaxy's API key guide](https://training.galaxyproject.org/training-material/faqs/galaxy/preferences_admin_api_key.html). Keep the key out of chat, screenshots and support issues.
 
-1. When the client starts the Galaxy connection, complete authorization in your browser. Check that the page is on `https://auth.galaxymcp.org` before entering a key.
+1. When the client starts the Galaxy connection, complete authorization in your browser. Check that the page is on `https://mcp.galaxyproject.org` before entering a key.
 2. Select your sites and enter **your own** Galaxy API key for each selected site. Leave unused sites empty. Do not paste keys into a chat, repository or MCP configuration.
-3. Review the access and retention terms before approving. Claude Code and Codex installations may label the connection **Galaxy for Claude Code**; the label identifies the OAuth client, not which Galaxy site you selected.
+3. Review the access and retention terms before approving. Claude Code installations may label the connection **Galaxy for Claude Code**; the label identifies the OAuth client, not which Galaxy site you selected.
 4. Return to the setup steps for your client and finish installing Galaxy Analysis. Check that both the Galaxy connection and the skill are available in a new conversation, then try the [read-only example](#try-an-existing-result-first). A working connection alone does not verify that the skill is installed. Keep the client's normal tool confirmations enabled.
 
-You can connect accounts on the US (`usegalaxy.org`), Europe (`usegalaxy.eu`), Australia (`usegalaxy.org.au`), France (`usegalaxy.fr`) and Canada (`usegalaxy.ca`) sites. Need another site? [Request its addition](https://mcp.galaxymcp.org/support#request-site) through GitHub Issues. Include only public site information, never credentials or private data.
+You can connect accounts on the US (`usegalaxy.org`), Europe (`usegalaxy.eu`), Australia (`usegalaxy.org.au`), France (`usegalaxy.fr`) and Canada (`usegalaxy.ca`) sites. Need another site? [Request its addition](https://mcp.galaxyproject.org/support#request-site) through GitHub Issues. Include only public site information, never credentials or private data.
 
-Each selected site needs its own account key, even when you connect several sites in one authorization. Data is not automatically copied between sites. Selected data and report content are returned to your assistant; read the [service privacy notice](https://mcp.galaxymcp.org/privacy). This preview is not intended for clinical, identifiable patient or other regulated data.
+Each selected site needs its own account key, even when you connect several sites in one authorization. Data is not automatically copied between sites. Selected data and report content are returned to your assistant; read the [service privacy notice](https://mcp.galaxyproject.org/privacy). The service is not intended for clinical, identifiable patient or other regulated data.
 
-The authorization service retains Galaxy keys under the consent terms; Claude Code and Codex installations also cache OAuth credentials locally. Uninstalling the plugin does not necessarily revoke authorization. To withdraw access, use the available revocation controls or rotate your Galaxy key.
+The authorization service retains Galaxy keys under the consent terms; Claude Code and Codex installations also cache OAuth credentials locally. Uninstalling the plugin does not necessarily revoke authorization. At any time, ask your connected assistant naturally to remove a Galaxy site, rotate a key or disconnect Galaxy. It will create a private five-minute management link; you do not need to remember an exact command or rely on browser cookies. To immediately disable a key, revoke it on that Galaxy site. See [connection management](https://mcp.galaxyproject.org/connections) for details.
 
 ## Try an existing result first
 
@@ -221,8 +221,7 @@ Interactive history, report and status cards require compatible MCP UI support i
 ## Troubleshooting and limits
 
 - **No Plugin Creator in ChatGPT Web:** follow the ChatGPT Web steps above; Plugin Creator is only part of the optional combined desktop-plugin route. Sign in first, then check whether your account exposes Developer mode and skill upload.
-- **Command not found (Codex):** ensure the Codex app can find `node` and `npx`; restart it after installing Node. Follow your organization's software policy. These commands are not needed for ChatGPT Web or Claude chat.
-- **Authorization fails:** use the settings for your target client. ChatGPT Web uses `galaxy-chatgpt` and its HTTPS callback above; the Claude Code and Codex packages use port **3118** and `/callback`. Do not interchange them. Complete one login at a time and close another pending Galaxy authorization before retrying.
+- **Authorization fails:** use the settings for your target client. ChatGPT Web uses `galaxy-chatgpt` and its HTTPS callback above; the Claude Code package uses port **3118** and `/callback`; Codex picks its own local port. Do not interchange them. Complete one login at a time and close another pending Galaxy authorization before retrying.
 - **Duplicate tools:** keep only the intended Galaxy connection enabled in the client. Do not overwrite unrelated MCP settings.
 - **Missing cards:** ask for a text summary and source links; card support varies by client.
 - **Analysis still running:** ask for the status of the existing run. An accepted submission is not a completed analysis; do not submit it again just because results are not ready.
@@ -230,6 +229,6 @@ Interactive history, report and status cards require compatible MCP UI support i
 
 ## Support and credits
 
-For bugs, installation help or site requests, open a [GitHub issue](https://github.com/goeckslab/galaxy-plugin/issues) with your app/version, reproduction steps and a redacted error, or the public site details. Issues are public; do not include credentials, private datasets or chat content. For privacy, deletion or account concerns, use the [private contact form](https://mcp.galaxymcp.org/support#private-contact). It is hosted by Google Forms; responses are not published. Service information: [Galaxy MCP](https://mcp.galaxymcp.org).
+For bugs, installation help or site requests, open a [GitHub issue](https://github.com/goeckslab/galaxy-plugin/issues) with your app/version, reproduction steps and a redacted error, or the public site details. Issues are public; do not include credentials, private datasets or chat content. For privacy, deletion or account concerns, use the [private contact form](https://mcp.galaxyproject.org/support#private-contact). It is hosted by Google Forms; responses are not published. Service information: [Galaxy MCP](https://mcp.galaxyproject.org).
 
-Maintained by Goecks Lab. See the Galaxy logo's [attribution and usage conditions](plugins/galaxy-plugin/assets/README.md).
+Published by the Galaxy Project from Penn State University, Johns Hopkins University, Moffitt Cancer Center, and Cleveland Clinic; maintained by Goecks Lab. See the Galaxy logo's [attribution and usage conditions](plugins/galaxy-plugin/assets/README.md).

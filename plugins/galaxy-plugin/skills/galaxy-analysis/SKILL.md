@@ -15,7 +15,7 @@ Use the connected Galaxy site's live catalog and tool schemas, not remembered id
    - If required inputs or access are missing, identify the gap; keep plans provisional and create nothing.
 2. Choose only the requested route:
    - **Inspect data:** browse the existing history; create a history only for a new analysis or requested isolation.
-   - **Run a tool:** inspect its live schema, version and examples; map datasets as HDA and collections as HDCA.
+   - **Run a tool:** inspect its live schema, version and examples; map datasets as HDA and collections as HDCA. Give `purpose`, a few words on why, which is saved on the outputs.
    - **Use a workflow:** check stored/IWC documentation, required tools and input contracts. Reuse an equivalent stored workflow or import the chosen revision only when execution is requested; map inputs by label and type.
    - For selection or planning, stop before importing or running. If nothing fits, explain the mismatch without changing the scientific question.
 3. Before submitting, monitoring or diagnosing a run, read [Running and troubleshooting](references/runs.md). Submit once; preserve recovery handles. An uncertain submission must not be blindly repeated.
@@ -34,7 +34,7 @@ Use the connected Galaxy site's live catalog and tool schemas, not remembered id
 
 ## Capability limits
 
-The current hosted service accepts authorized HTTP(S) uploads, not local attachments. It cannot create collections, export files to a local path or delete histories; offer Galaxy's web interface for those operations. Existing collections remain usable. Arbitrary scripts and user-defined tools are not supported.
+The assistant can add data only from authorized HTTP(S) URLs, not from chat attachments. For a file on the user's computer, show the history (`show_history`) and point to its Upload button, which sends the file straight to Galaxy; where no card appears, offer Galaxy's web interface. Then re-read the history before using the file. `create_collection` groups datasets already in a history into a list, paired or list:paired collection. It cannot export files to a local path or delete histories; offer Galaxy's web interface for those operations. Arbitrary scripts and user-defined tools are not supported.
 
 ## Answer the user
 

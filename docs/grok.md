@@ -43,10 +43,10 @@ This is a personal custom-connector setup, not a public-directory installation. 
 3. Enter these settings:
 
    - **Name:** `Galaxy`
-   - **Server URL:** `https://mcp.galaxymcp.org/mcp`
+   - **Server URL:** `https://mcp.galaxyproject.org/mcp`
 
    The current form asks only for a name and server URL. Do not enter a Galaxy API key here. Grok discovers the service's OAuth settings automatically; no client ID or secret is needed in this form.
-4. Choose **Add Connector**, follow the browser redirect to `https://auth.galaxymcp.org`, and complete [Galaxy authorization](#authorize-your-galaxy-account).
+4. Choose **Add Connector**, follow the browser redirect to `https://mcp.galaxyproject.org`, and complete [Galaxy authorization](#authorize-your-galaxy-account).
 5. Return to Grok and confirm Galaxy is connected. Open a new conversation, enable Galaxy if the interface asks, and send the [read-only check](#check-the-connection).
 
 The service supports Grok's published web OAuth identity. Successful authorization and discovery must be followed by a real tool response; reaching a consent page alone is not a completed connection. Interactive card rendering in Grok has not been verified. Ask for text, tables and source links if cards are unavailable.
@@ -56,10 +56,10 @@ See [Grok's custom MCP connector guide](https://docs.x.ai/grok/connectors).
 ## Authorize your Galaxy account
 
 1. Sign in to the Galaxy site you want to use. Open **User → Preferences → Manage API key** and reuse your existing key, or create one if you do not have one.
-2. Check that the authorization page is on `https://auth.galaxymcp.org` before entering a key. Select your Galaxy sites and enter your own key for each selected site.
+2. Check that the authorization page is on `https://mcp.galaxyproject.org` before entering a key. Select your Galaxy sites and enter your own key for each selected site.
 3. Review the requested access and retention terms, then approve. A key can allow access to your account's data and analysis operations; keep normal tool confirmations enabled. Do not use clinical or identifiable patient data in this preview.
 
-Never put keys, OAuth tokens or passwords in chat, an MCP URL, a repository, screenshots or a public issue. Each site requires its own key; connecting several sites does not transfer data between them. Selected data and report content can be returned to Grok. Read the [service privacy notice](https://mcp.galaxymcp.org/privacy).
+Never put keys, OAuth tokens or passwords in chat, an MCP URL, a repository, screenshots or a public issue. Each site requires its own key; connecting several sites does not transfer data between them. Selected data and report content can be returned to Grok. Read the [service privacy notice](https://mcp.galaxyproject.org/privacy).
 
 ## Check the connection
 
@@ -85,4 +85,4 @@ in a compact table and link the original report. Do not run a new analysis.
 - **No cards:** use text, tables and original Galaxy links. Client UI support is separate from tool connectivity.
 - **Remove access:** ask your connected assistant to manage or disconnect your Galaxy connections. Galaxy provides a private five-minute management link. To disable a key immediately, revoke it on that Galaxy site; removing a connector or plugin alone may not revoke authorization.
 
-For installation problems, open a [GitHub issue](https://github.com/goeckslab/galaxy-plugin/issues) with the client/version, steps and a redacted error. Do not include credentials or private data. For account or privacy concerns, use the [private support contact](https://mcp.galaxymcp.org/support#private-contact).
+For installation problems, open a [GitHub issue](https://github.com/goeckslab/galaxy-plugin/issues) with the client/version, steps and a redacted error. Do not include credentials or private data. For account or privacy concerns, use the [private support contact](https://mcp.galaxyproject.org/support#private-contact).

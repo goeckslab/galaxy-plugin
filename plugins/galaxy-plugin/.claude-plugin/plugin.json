@@ -1,21 +1,22 @@
 {
   "name": "galaxy-plugin",
-  "version": "0.4.1",
+  "version": "1.0.0",
   "displayName": "Galaxy",
   "description": "Explore Galaxy histories, run analyses, inspect results, and manage authorized sites from Claude chat or Claude Code.",
   "author": {
-    "name": "Goecks Lab"
+    "name": "Galaxy Project from Penn State University, Johns Hopkins University, Moffitt Cancer Center, and Cleveland Clinic",
+    "url": "https://galaxyproject.org"
   },
   "license": "MIT",
   "icon": "./assets/galaxy-directory.png",
   "documentationUrl": "https://github.com/goeckslab/galaxy-plugin#install",
-  "supportUrl": "https://mcp.galaxymcp.org/support",
-  "privacyPolicyUrl": "https://mcp.galaxymcp.org/privacy",
-  "termsOfServiceUrl": "https://mcp.galaxymcp.org/terms",
+  "supportUrl": "https://mcp.galaxyproject.org/support",
+  "privacyPolicyUrl": "https://mcp.galaxyproject.org/privacy",
+  "termsOfServiceUrl": "https://mcp.galaxyproject.org/terms",
   "mcpServers": {
     "galaxy": {
       "type": "http",
-      "url": "https://mcp.galaxymcp.org/mcp",
+      "url": "https://mcp.galaxyproject.org/mcp",
       "oauth": {
         "clientId": "galaxy-claude-code",
         "callbackPort": 3118

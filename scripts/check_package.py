@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 
 NAME = "galaxy-plugin"
+AUTHOR = "Galaxy Project from Penn State University, Johns Hopkins University, Moffitt Cancer Center, and Cleveland Clinic"
 PLUGIN = f"plugins/{NAME}"
 FILES = {
     "README.md", ".gitignore", ".github/workflows/check.yml",
@@ -23,16 +24,10 @@ FILES = {
     f"{PLUGIN}/assets/galaxy-logo.png",
 }
 CODEX_MCP = {"mcpServers": {"galaxy": {
-    "command": "npx",
-    "args": ["--yes", "mcp-remote@0.8.3", "https://mcp.galaxymcp.org/mcp", "3118",
-             "--resource", "https://mcp.galaxymcp.org/mcp",
-             "--callback-path", "/callback", "--transport", "http-only",
-             "--static-oauth-client-info",
-             '{"client_id":"galaxy-claude-code","token_endpoint_auth_method":"none"}',
-             "--auth-timeout", "300", "--silent"],
+    "type": "http", "url": "https://mcp.galaxyproject.org/mcp",
 }}}
 CLAUDE_MCP = {"galaxy": {
-    "type": "http", "url": "https://mcp.galaxymcp.org/mcp",
+    "type": "http", "url": "https://mcp.galaxyproject.org/mcp",
     "oauth": {"clientId": "galaxy-claude-code", "callbackPort": 3118},
 }}
 PRIVATE = re.compile(
@@ -61,10 +56,11 @@ def validate(files):
     assert grok["skills"] == "./skills/" and grok["mcpServers"] == "./.grok-plugin/mcp.json"
     grok_server = read(f"{PLUGIN}/.grok-plugin/mcp.json")["mcpServers"]["galaxy"]
     assert grok_server == {
-        "type": "http", "url": "https://mcp.galaxymcp.org/mcp",
+        "type": "http", "url": "https://mcp.galaxyproject.org/mcp",
         "oauth": {"clientId": "galaxy-grok-build", "callbackPort": 3120},
     }, "Grok native HTTP endpoint or OAuth identity changed"
-    assert grok["author"] == {"name": "Goecks Lab"} and grok["license"] == "MIT"
+    assert grok["author"] == codex["author"] == {"name": AUTHOR} and grok["license"] == "MIT"
+    assert claude["author"] == {"name": AUTHOR, "url": "https://galaxyproject.org"}
     assert "apps" not in grok and "hooks" not in grok, "No private mappings or lifecycle hooks"
     assert codex["version"] == claude["version"]
     assert "apps" not in codex and "apps" not in claude, "No private app mapping"
@@ -75,16 +71,16 @@ def validate(files):
     assert claude["icon"] == "./assets/galaxy-directory.png"
     for field, url in {
         "documentationUrl": "https://github.com/goeckslab/galaxy-plugin#install",
-        "supportUrl": "https://mcp.galaxymcp.org/support",
-        "privacyPolicyUrl": "https://mcp.galaxymcp.org/privacy",
-        "termsOfServiceUrl": "https://mcp.galaxymcp.org/terms",
+        "supportUrl": "https://mcp.galaxyproject.org/support",
+        "privacyPolicyUrl": "https://mcp.galaxyproject.org/privacy",
+        "termsOfServiceUrl": "https://mcp.galaxyproject.org/terms",
     }.items():
         assert claude[field] == url, f"Claude directory link changed: {field}"
     assert len(files[f"{PLUGIN}/README.md"].decode().split()) >= 40
     assert files[f"{PLUGIN}/LICENSE"].startswith(b"MIT License\n")
     for icon in ("logo", "composerIcon"):
         assert codex["interface"][icon] == "./assets/galaxy-directory.png"
-    assert read(f"{PLUGIN}/.mcp.json") == CODEX_MCP, "Codex OAuth/endpoint contract changed"
+    assert read(f"{PLUGIN}/.mcp.json") == CODEX_MCP, "Codex endpoint contract changed"
     for path, source in (
         (".agents/plugins/marketplace.json", {"source": "local", "path": f"./{PLUGIN}"}),
         (".claude-plugin/marketplace.json", f"./{PLUGIN}"),

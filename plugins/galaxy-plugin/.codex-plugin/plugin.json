@@ -1,9 +1,9 @@
 {
   "name": "galaxy-plugin",
-  "version": "0.4.1",
+  "version": "1.0.0",
   "description": "Use Galaxy data, tools and workflows from desktop AI assistants.",
   "author": {
-    "name": "Goecks Lab"
+    "name": "Galaxy Project from Penn State University, Johns Hopkins University, Moffitt Cancer Center, and Cleveland Clinic"
   },
   "keywords": [
     "bioinformatics",
@@ -14,8 +14,8 @@
   "interface": {
     "displayName": "Galaxy",
     "shortDescription": "Galaxy data and analyses",
-    "longDescription": "Plan, run, verify, and document Galaxy analyses through a connected Galaxy MCP server.",
-    "developerName": "Goecks Lab",
+    "longDescription": "Plan, run, verify, and document Galaxy analyses, and manage authorized sites through a connected Galaxy MCP server.",
+    "developerName": "Galaxy Project",
     "composerIcon": "./assets/galaxy-directory.png",
     "logo": "./assets/galaxy-directory.png",
     "category": "Research",

@@ -1,9 +1,9 @@
 {
   "name": "galaxy-plugin",
-  "version": "0.4.1",
+  "version": "1.0.0",
   "description": "Browse Galaxy histories, run analyses, inspect reports, and manage authorized Galaxy sites from Grok Build.",
   "author": {
-    "name": "Goecks Lab"
+    "name": "Galaxy Project from Penn State University, Johns Hopkins University, Moffitt Cancer Center, and Cleveland Clinic"
   },
   "homepage": "https://github.com/goeckslab/galaxy-plugin",
   "license": "MIT",

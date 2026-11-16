@@ -1,14 +1,15 @@
 {
   "name": "galaxy-plugins",
   "owner": {
-    "name": "Goecks Lab"
+    "name": "Galaxy Project",
+    "url": "https://galaxyproject.org"
   },
   "description": "Galaxy data, bioinformatics tools and evidence-based analysis guidance.",
   "plugins": [
     {
       "name": "galaxy-plugin",
       "source": "./plugins/galaxy-plugin",
-      "description": "Use Galaxy data, tools and workflows from desktop AI assistants.",
+      "description": "Use Galaxy data, tools and workflows, and manage authorized sites from your AI assistant.",
       "category": "science"
     }
   ]
