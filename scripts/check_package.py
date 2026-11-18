@@ -15,7 +15,7 @@ FILES = {
     "scripts/check_package.py", "docs/grok.md",
     f"{PLUGIN}/.grok-plugin/plugin.json", f"{PLUGIN}/.grok-plugin/mcp.json",
     f"{PLUGIN}/.codex-plugin/plugin.json", f"{PLUGIN}/.claude-plugin/plugin.json",
-    f"{PLUGIN}/.mcp.json", f"{PLUGIN}/skills/galaxy-analysis/SKILL.md",
+    f"{PLUGIN}/.codex-plugin/mcp.json", f"{PLUGIN}/skills/galaxy-analysis/SKILL.md",
     f"{PLUGIN}/README.md", f"{PLUGIN}/LICENSE",
     f"{PLUGIN}/skills/galaxy-analysis/agents/openai.yaml",
     f"{PLUGIN}/skills/galaxy-analysis/references/runs.md",
@@ -65,7 +65,7 @@ def validate(files):
     assert codex["version"] == claude["version"]
     assert "apps" not in codex and "apps" not in claude, "No private app mapping"
     assert codex["skills"] == "./skills/"
-    assert codex["mcpServers"] == "./.mcp.json"
+    assert codex["mcpServers"] == "./.codex-plugin/mcp.json"
     assert claude["mcpServers"] == CLAUDE_MCP
     assert claude["license"] == "MIT"
     assert claude["icon"] == "./assets/galaxy-directory.png"
@@ -80,7 +80,7 @@ def validate(files):
     assert files[f"{PLUGIN}/LICENSE"].startswith(b"MIT License\n")
     for icon in ("logo", "composerIcon"):
         assert codex["interface"][icon] == "./assets/galaxy-directory.png"
-    assert read(f"{PLUGIN}/.mcp.json") == CODEX_MCP, "Codex endpoint contract changed"
+    assert read(f"{PLUGIN}/.codex-plugin/mcp.json") == CODEX_MCP, "Codex endpoint contract changed"
     for path, source in (
         (".agents/plugins/marketplace.json", {"source": "local", "path": f"./{PLUGIN}"}),
         (".claude-plugin/marketplace.json", f"./{PLUGIN}"),

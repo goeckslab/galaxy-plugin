@@ -29,5 +29,5 @@
       "Run the appropriate Galaxy tools and produce a reproducibility summary."
     ]
   },
-  "mcpServers": "./.mcp.json"
+  "mcpServers": "./.codex-plugin/mcp.json"
 }
