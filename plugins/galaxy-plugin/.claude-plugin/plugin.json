@@ -7,7 +7,23 @@
     "name": "Galaxy Project from Penn State University, Johns Hopkins University, Moffitt Cancer Center, and Cleveland Clinic",
     "url": "https://galaxyproject.org"
   },
+  "homepage": "https://galaxyproject.org",
+  "repository": "https://github.com/goeckslab/galaxy-plugin",
   "license": "MIT",
+  "keywords": [
+    "galaxy",
+    "bioinformatics",
+    "genomics",
+    "transcriptomics",
+    "sequencing",
+    "ngs",
+    "workflows",
+    "iwc",
+    "data-analysis",
+    "life-sciences",
+    "research",
+    "reproducibility"
+  ],
   "icon": "./assets/galaxy-directory.png",
   "documentationUrl": "https://github.com/goeckslab/galaxy-plugin#install",
   "supportUrl": "https://mcp.galaxyproject.org/support",
