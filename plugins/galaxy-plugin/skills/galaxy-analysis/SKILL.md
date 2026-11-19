@@ -34,7 +34,7 @@ Use the connected Galaxy site's live catalog and tool schemas, not remembered id
 
 ## Capability limits
 
-The assistant can add data only from authorized HTTP(S) URLs, not from chat attachments. For a file on the user's computer, show the history (`show_history`) and point to its Upload button, which sends the file straight to Galaxy; where no card appears, offer Galaxy's web interface. Then re-read the history before using the file. `create_collection` groups datasets already in a history into a list, paired or list:paired collection. It cannot export files to a local path or delete histories; offer Galaxy's web interface for those operations. Arbitrary scripts and user-defined tools are not supported.
+Before adding data, read [Uploading files](references/uploads.md), then re-read the history before using the file. `create_collection` groups datasets already in a history into a list, paired or list:paired collection. It cannot export files to a local path or delete histories; offer Galaxy's web interface for those operations. Arbitrary scripts and user-defined tools are not supported.
 
 ## Answer the user
 

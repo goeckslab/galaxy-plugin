@@ -12,7 +12,7 @@ PLUGIN = f"plugins/{NAME}"
 FILES = {
     "README.md", ".gitignore", ".github/workflows/check.yml",
     ".agents/plugins/marketplace.json", ".claude-plugin/marketplace.json",
-    "scripts/check_package.py", "docs/grok.md",
+    "scripts/check_package.py", "docs/grok.md", "docs/how-it-works.svg",
     f"{PLUGIN}/.grok-plugin/plugin.json", f"{PLUGIN}/.grok-plugin/mcp.json",
     f"{PLUGIN}/.codex-plugin/plugin.json", f"{PLUGIN}/.claude-plugin/plugin.json",
     f"{PLUGIN}/.codex-plugin/mcp.json", f"{PLUGIN}/skills/galaxy-analysis/SKILL.md",
@@ -20,6 +20,7 @@ FILES = {
     f"{PLUGIN}/skills/galaxy-analysis/agents/openai.yaml",
     f"{PLUGIN}/skills/galaxy-analysis/references/runs.md",
     f"{PLUGIN}/skills/galaxy-analysis/references/reports.md",
+    f"{PLUGIN}/skills/galaxy-analysis/references/uploads.md",
     f"{PLUGIN}/assets/README.md", f"{PLUGIN}/assets/galaxy-directory.png",
     f"{PLUGIN}/assets/galaxy-logo.png",
 }

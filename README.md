@@ -76,7 +76,7 @@ Before starting, sign in to ChatGPT and check that your account offers both Deve
 
 1. At the top of [this repository](https://github.com/goeckslab/galaxy-plugin), choose **Code → Download ZIP**, then extract the download.
 2. Open `plugins/galaxy-plugin/skills/` and locate the `galaxy-analysis` folder.
-3. Compress the **whole `galaxy-analysis` folder** into `galaxy-analysis.zip`. Keep its contents unchanged: `SKILL.md`, `agents/openai.yaml`, `references/runs.md` and `references/reports.md`.
+3. Compress the **whole `galaxy-analysis` folder** into `galaxy-analysis.zip`. Keep its contents unchanged: `SKILL.md`, `agents/openai.yaml`, `references/runs.md`, `references/reports.md` and `references/uploads.md`.
 
 Upload this skill ZIP in step 3, not the whole repository archive or just `SKILL.md`.
 
@@ -146,7 +146,7 @@ then test the Galaxy connection with a read-only request.
 ```
 
 1. Restart the ChatGPT desktop app after setup. Open **Plugins**, choose the personal local marketplace created by Plugin Creator, and install **Galaxy**.
-2. Check that the installed plugin lists **Galaxy Analysis** (`galaxy-analysis`) as well as the Galaxy connection. Confirm that the skill's supporting files, including `references/runs.md` and `references/reports.md`, are present; installing only `SKILL.md` is incomplete.
+2. Check that the installed plugin lists **Galaxy Analysis** (`galaxy-analysis`) as well as the Galaxy connection. Confirm that the skill's supporting files, including `references/runs.md`, `references/reports.md` and `references/uploads.md`, are present; installing only `SKILL.md` is incomplete.
 3. Start a new Work conversation, select **Galaxy**, and try the [read-only example below](#try-an-existing-result-first). Keep the normal tool confirmations enabled, especially for actions that create data or start analyses.
 
 Installing this local desktop package does not by itself verify that the complete plugin is available on the web. If the registered Galaxy connection appears in the same signed-in ChatGPT account on the web, reuse it; follow the Web steps above to check that Galaxy Analysis is available there too.
