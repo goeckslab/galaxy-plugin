@@ -30,7 +30,13 @@ Choose the instructions for the app you use below; you only need one installatio
 
 ## Watch the walkthroughs
 
-Play the videos directly below. All three include English narration and captions.
+Play the videos directly below. The two ChatGPT videos include English narration and captions.
+
+### Install Galaxy and run an analysis in Claude · 1:58
+
+Add Galaxy from its GitHub marketplace, connect your Galaxy account, ask for a yeast RNA-seq comparison, follow the run, and open the results, a volcano plot and the results table in the conversation.
+
+https://github.com/user-attachments/assets/9d6919d7-1f98-469f-a6bb-a5c1a75d3d61
 
 ### Set up Galaxy in ChatGPT Web · 5:00
 
@@ -45,12 +51,6 @@ The installation video shows the current personal Web setup while the plugin awa
 Run a fresh yeast RNA-seq analysis on Galaxy, then open the workspace beside the conversation to browse its outputs. Preview real tables and a PDF report, load more or fewer files, and scroll sideways through wide tables.
 
 https://github.com/user-attachments/assets/64097d57-dc15-422e-b18e-eb743216f68d
-
-### Run an analysis in Claude Desktop · 3:14
-
-With Galaxy already connected, analyze public yeast count data, check run status, browse files, preview a results table and open the original PDF report in Galaxy.
-
-https://github.com/user-attachments/assets/d1926a8e-af6b-4105-b804-54470619ff87
 
 The two demos focus on using the product and inspecting its outputs, not interpreting the scientific results.
 
