@@ -19,6 +19,8 @@ data, or chat content in the issue.
 
 Work with your Galaxy data from an AI assistant. Browse analysis histories, read reports, find workflows, run bioinformatics tools and check their results. Analyses run on the Galaxy site you choose; the assistant helps you prepare them and interpret the outputs.
 
+![How Galaxy works in your AI app: install it, connect your Galaxy accounts, work in the chat, and manage connections at any time](docs/how-it-works.svg)
+
 Choose the instructions for the app you use below; you only need one installation route. The setup has two parts: the Galaxy connection supplies tools, and the `galaxy-analysis` skill provides guidance for using them and checking results. In ChatGPT Web, whether you use Chat or Work, connect the service and upload the skill separately. Claude chat, Claude Code and Codex install the skill and connection reference through their plugin package. The hosted service connects your assistant to your Galaxy account using MCP (Model Context Protocol).
 
 <a id="watch-the-chatgpt-web-walkthroughs"></a>

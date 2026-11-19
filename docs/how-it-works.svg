@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 964 424" width="964" height="424" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">How Galaxy works in your AI app</title>
+  <desc id="d">Install Galaxy, connect your Galaxy accounts, then work in the chat. Manage connections at any time. Your AI app talks to the Galaxy MCP service, which keeps your keys and calls your Galaxy sites.</desc>
+  <style>
+    .card { fill: #f6f8fa; stroke: #d0d7de; }
+    .wide { fill: #ffffff; stroke: #d0d7de; stroke-dasharray: 6 5; }
+    .pill { fill: #ffffff; stroke: #d0d7de; }
+    .hub { fill: #fff8db; stroke: #d4a72c; }
+    .h { fill: #1f2328; font-size: 17px; font-weight: 600; }
+    .b { fill: #1f2328; font-size: 14px; }
+    .m { fill: #59636e; font-size: 13px; }
+    .badge { fill: #f2c94c; }
+    .num { fill: #2c3143; font-size: 14px; font-weight: 700; }
+    .line { stroke: #8c959f; stroke-width: 1.5; fill: none; }
+    .head { fill: #8c959f; }
+    .lbl { fill: #59636e; font-size: 12px; }
+    @media (prefers-color-scheme: dark) {
+      .card { fill: #161b22; stroke: #30363d; }
+      .wide, .pill { fill: #0d1117; stroke: #3d444d; }
+      .hub { fill: #2b2412; stroke: #9e7a1e; }
+      .h, .b { fill: #e6edf3; }
+      .m, .lbl { fill: #9198a1; }
+      .line { stroke: #6e7681; }
+      .head { fill: #6e7681; }
+    }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="card" x="16" y="16" width="284" height="150" rx="12"/>
+  <circle class="badge" cx="46" cy="48" r="14"/>
+  <text class="num" x="46" y="53" text-anchor="middle">1</text>
+  <text class="h" x="70" y="54">Install Galaxy</text>
+  <text class="b"><tspan x="36" y="88">Claude, Codex, Grok: the plugin.</tspan><tspan x="36" dy="20">ChatGPT: connection and skill.</tspan></text>
+
+  <path class="line" d="M302 91 H338" marker-end="url(#arrow)"/>
+
+  <rect class="card" x="340" y="16" width="284" height="150" rx="12"/>
+  <circle class="badge" cx="370" cy="48" r="14"/>
+  <text class="num" x="370" y="53" text-anchor="middle">2</text>
+  <text class="h" x="394" y="54">Connect your accounts</text>
+  <text class="b"><tspan x="360" y="88">Pick your Galaxy sites on</tspan><tspan x="360" dy="20">mcp.galaxyproject.org and sign</tspan><tspan x="360" dy="20">in to each with your API key.</tspan></text>
+  <text class="m" x="360" y="152">US · EU · AU · FR · CA · test (Keycloak)</text>
+
+  <path class="line" d="M626 91 H662" marker-end="url(#arrow)"/>
+
+  <rect class="card" x="664" y="16" width="284" height="150" rx="12"/>
+  <circle class="badge" cx="694" cy="48" r="14"/>
+  <text class="num" x="694" y="53" text-anchor="middle">3</text>
+  <text class="h" x="718" y="54">Work in the chat</text>
+  <text class="b"><tspan x="684" y="88">Browse histories, run tools and</tspan><tspan x="684" dy="20">workflows, check results.</tspan></text>
+
+  <path class="line" d="M806 168 V196" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+  <rect class="wide" x="16" y="198" width="932" height="64" rx="12"/>
+  <circle class="badge" cx="46" cy="230" r="14"/>
+  <text class="num" x="46" y="235" text-anchor="middle">4</text>
+  <text class="h" x="70" y="236">Manage connections any time</text>
+  <text class="b" x="330" y="235">Ask the assistant for a private link to add a site, switch accounts or sign in again.</text>
+
+  <text class="m" x="16" y="304">Behind the scenes</text>
+  <rect class="pill" x="16" y="318" width="220" height="74" rx="10"/>
+  <text class="h" x="126" y="360" text-anchor="middle">Your AI app</text>
+
+  <path class="line" d="M238 355 H338" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <text class="lbl" x="288" y="345" text-anchor="middle">MCP</text>
+
+  <rect class="hub" x="340" y="318" width="284" height="74" rx="10"/>
+  <text class="h" x="482" y="350" text-anchor="middle">Galaxy MCP service</text>
+  <text class="m" x="482" y="372" text-anchor="middle">Keeps your keys</text>
+
+  <path class="line" d="M626 355 H726" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <text class="lbl" x="676" y="345" text-anchor="middle">Galaxy API</text>
+
+  <rect class="pill" x="728" y="318" width="220" height="74" rx="10"/>
+  <text class="h" x="838" y="350" text-anchor="middle">Your Galaxy sites</text>
+  <text class="m" x="838" y="372" text-anchor="middle">Analyses run here</text>
+</svg>
