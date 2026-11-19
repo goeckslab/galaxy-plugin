@@ -2,15 +2,18 @@
 
 **Turn your ChatGPT chat into a Galaxy agent.**
 
-The easiest way to install is to give this prompt to your agent (replace the target app):
+The easiest way to install is to hand it to an agent with computer use, one that can operate your browser and apps (for example Claude with computer use or Claude in Chrome). Give it this prompt (replace the target app):
 
 ```text
 Install Galaxy from https://github.com/goeckslab/galaxy-plugin in <target app,
 such as ChatGPT Web (Chat or Work), Claude chat, Claude Code, Codex, or Grok Build>. Follow the
-repository's setup instructions for that app. Install both the Galaxy tools
-and the bundled galaxy-analysis skill with all its supporting files, confirm it is available,
-and verify the connection with a read-only request. If my client cannot make
-both available, explain the limitation; do not silently substitute tools-only access.
+repository's setup instructions for that app, using computer use to click through
+its settings. Install both the Galaxy tools and the bundled galaxy-analysis skill
+with all its supporting files, confirm it is available, and verify the connection
+with a read-only request. When the Galaxy sign-in page opens, stop and let me sign
+in, enter my API key and approve access myself; never type a key or password for me.
+If my client cannot make both available, explain the limitation; do not silently
+substitute tools-only access.
 If you run into any problems, submit a GitHub issue at
 https://github.com/goeckslab/galaxy-plugin/issues with the app/version, steps
 tried, and error. Never include API keys, OAuth tokens, passwords, private
