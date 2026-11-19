@@ -43,7 +43,7 @@
   <text class="num" x="370" y="53" text-anchor="middle">2</text>
   <text class="h" x="394" y="54">Connect your accounts</text>
   <text class="b"><tspan x="360" y="88">Pick your Galaxy sites on</tspan><tspan x="360" dy="20">mcp.galaxyproject.org and sign</tspan><tspan x="360" dy="20">in to each with your API key.</tspan></text>
-  <text class="m" x="360" y="152">US · EU · AU · FR · CA · test (Keycloak)</text>
+  <text class="m" x="360" y="152">US · EU · AU · FR · CA · CFDE · test (Keycloak)</text>
 
   <path class="line" d="M626 91 H662" marker-end="url(#arrow)"/>
 
