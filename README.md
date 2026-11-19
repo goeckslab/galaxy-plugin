@@ -1,7 +1,5 @@
 # Galaxy
 
-**Turn your ChatGPT chat into a Galaxy agent.**
-
 The easiest way to install is to hand it to an agent with computer use, one that can operate your browser and apps (for example Claude with computer use or Claude in Chrome). Give it this prompt (replace the target app):
 
 ```text
@@ -32,11 +30,11 @@ Choose the instructions for the app you use below; you only need one installatio
 
 Play the videos directly below. The two ChatGPT videos include English narration and captions.
 
-### Install Galaxy and run an analysis in Claude · 1:58
+### Install Galaxy and run an analysis in Claude · 2:00
 
 Add Galaxy from its GitHub marketplace, connect your Galaxy account, ask for a yeast RNA-seq comparison, follow the run, and open the results, a volcano plot and the results table in the conversation.
 
-https://github.com/user-attachments/assets/9d6919d7-1f98-469f-a6bb-a5c1a75d3d61
+https://github.com/user-attachments/assets/8fda0006-99ed-46e2-a036-f4d93db6fe64
 
 ### Set up Galaxy in ChatGPT Web · 5:00
 
