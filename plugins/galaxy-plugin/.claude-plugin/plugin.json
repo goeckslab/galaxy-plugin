@@ -30,7 +30,7 @@
   "privacyPolicyUrl": "https://mcp.galaxyproject.org/privacy",
   "termsOfServiceUrl": "https://mcp.galaxyproject.org/terms",
   "mcpServers": {
-    "galaxy": {
+    "Galaxy": {
       "type": "http",
       "url": "https://mcp.galaxyproject.org/mcp",
       "oauth": {

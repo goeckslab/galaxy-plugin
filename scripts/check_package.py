@@ -27,7 +27,7 @@ FILES = {
 CODEX_MCP = {"mcpServers": {"galaxy": {
     "type": "http", "url": "https://mcp.galaxyproject.org/mcp",
 }}}
-CLAUDE_MCP = {"galaxy": {
+CLAUDE_MCP = {"Galaxy": {
     "type": "http", "url": "https://mcp.galaxyproject.org/mcp",
     "oauth": {"clientId": "galaxy-claude-code", "callbackPort": 3118},
 }}

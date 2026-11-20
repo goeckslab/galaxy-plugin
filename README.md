@@ -107,7 +107,7 @@ Cards for histories, reports and run status need an app that supports MCP UI; ot
 
 ## Troubleshooting
 
-- **Too many approval prompts (Claude):** open **Customize → Connectors → galaxy** and set **Read-only tools** and **Interactive tools** to **Always allow**. Keep **Write/delete tools** on **Needs approval**, since they create histories, upload data and start analyses.
+- **Too many approval prompts (Claude):** open **Customize → Connectors → Galaxy** and set **Read-only tools** and **Interactive tools** to **Always allow**. Keep **Write/delete tools** on **Needs approval**, since they create histories, upload data and start analyses.
 - **Authorization fails:** complete one login at a time. ChatGPT Web uses the `galaxy-chatgpt` client; Claude Code uses local port **3118**.
 - **Duplicate tools:** keep only one Galaxy connection enabled.
 - **Analysis still running:** ask for the status of the existing run instead of submitting it again.
