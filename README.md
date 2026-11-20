@@ -6,11 +6,11 @@ Work with your Galaxy data from an AI assistant. Browse analysis histories, uplo
 
 ## Watch the walkthrough
 
-### Install Galaxy and run an analysis in Claude · 2:00
+### Install Galaxy, upload a file and run an analysis in Claude · 2:39
 
-Add Galaxy from its GitHub marketplace, connect your Galaxy account, ask for a yeast RNA-seq comparison, follow the run, and open the results, a volcano plot and the results table in the conversation.
+Add Galaxy from its GitHub marketplace and connect your Galaxy account. Attach a FASTQ file and have Claude send it to Galaxy and run FastQC. Then ask for a yeast RNA-seq comparison, follow the run, and open the volcano plot, heatmap and results table in the conversation.
 
-https://github.com/user-attachments/assets/8fda0006-99ed-46e2-a036-f4d93db6fe64
+https://github.com/user-attachments/assets/4273673b-ce58-4da3-a5c6-5d078d970bdb
 
 ## Let an agent install it
 
