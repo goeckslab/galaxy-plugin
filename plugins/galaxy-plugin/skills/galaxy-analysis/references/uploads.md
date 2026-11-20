@@ -8,11 +8,13 @@
 
 Never ask for or use a Galaxy API key; the upload address authorizes the bytes.
 
+Set the datatype the tutorial or tool expects (for example `ome.tiff`) rather than a generic one.
+
 ## A chat attachment
 
 1. Call `start_file_upload` with `historyId`, `fileName` and the file's exact `size` in bytes.
 2. Send the file to `upload.url` with the code below, in chunks of `upload.chunk_bytes`.
-3. Call `finish_file_upload` with the returned `session_id`, then wait for the dataset to be ready.
+3. Call `finish_file_upload` with the returned `session_id`, then `wait_for_datasets` until the dataset is ready.
 
 ```python
 import os, urllib.request
@@ -34,4 +36,4 @@ If the request cannot reach the Galaxy site, stop and point to the card's Upload
 
 ## A file the user uploaded with the card
 
-When the user refers to a file they just uploaded, use `last_upload` from the card's context if present. Otherwise re-read that history, newest first, and match the file name. Ask if the name matches several datasets or none, and wait until the dataset is ready before running a tool on it.
+When the user refers to a file they just uploaded, use `last_upload` from the card's context if present. Otherwise re-read that history, newest first, and match the file name. Ask if the name matches several datasets or none, and use `wait_for_datasets` until it is ready before running a tool on it.

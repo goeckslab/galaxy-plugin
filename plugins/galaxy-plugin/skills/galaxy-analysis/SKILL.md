@@ -28,6 +28,7 @@ Use the connected Galaxy site's live catalog and tool schemas, not remembered id
 | Connected sites | `get_galaxy_connections` |
 | Browse a history | `get_history_contents` |
 | Visible run progress | `get_run_status` |
+| Wait for uploads or outputs | `wait_for_datasets` |
 | Tool-request / workflow details | `get_tool_request_status` / `get_invocations` |
 | Investigate a known job | `get_job_details` |
 | Short text / HTML, PDF or longer reports | `get_dataset_text` / `read_dataset_report` |

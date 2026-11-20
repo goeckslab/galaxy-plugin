@@ -4,7 +4,8 @@
 
 - `run_tool` accepts a request, not a completed analysis. Retain its handle for `get_tool_request_status`; use the invocation handle with `get_invocations` for workflows. Scheduling alone is not completed execution.
 - Use `get_run_status` after submission or for requested visible progress. The card refreshes while visible and pauses after a failed check. Verify background progress with data-only status tools and returned job handles, not repeated cards.
-- For requested execution, monitor to a terminal state using the client's waiting mechanism. For status-only requests, report the existing run. Invocation lookup requires its handle; the service cannot find invocations from a history alone.
+- For requested execution, keep going in the same turn. After starting uploads or jobs, call `wait_for_datasets` while `done` is false, then start the next step as soon as its inputs are ready. Do not ask the user to watch progress. Stop only for a decision, a failure, or after about 30 minutes of waiting; then say what is still running and that the user can reply "continue".
+- For status-only requests, report the existing run. Invocation lookup requires its handle; the service cannot find invocations from a history alone.
 
 | Observation | Next action |
 | --- | --- |
